@@ -39,6 +39,10 @@ Opening folders directly in Chrome (`file:///.../service/generative-ai/`) shows 
 
 Submissions go to Formspree, which emails your inbox (same Gmail that receives `contact@` / `info@` if you use that address in Formspree).
 
+## Calendly
+
+Set **`VYRENLO_CALENDLY_URL`** in `form-config.js`. Elements with class **`calendly-cta`** open that link in a new tab (header, hero, service pages, contact page).
+
 ## Inner pages
 
 Cyberify-style detail pages live under:
@@ -58,5 +62,5 @@ node scripts/build-pages.mjs
 ## Customize
 
 - Replace placeholder client names, testimonials, and case studies with real content.
-- Add `privacy.html` / `terms.html` and link from the footer.
+- Edit legal copy in `scripts/legal-content.mjs`, then run `node scripts/build-pages.mjs`.
 - Optional: add real logo assets in an `assets/` folder.

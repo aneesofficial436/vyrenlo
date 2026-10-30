@@ -1,4 +1,13 @@
 (function () {
+  const calendlyUrl = window.VYRENLO_CALENDLY_URL;
+  if (calendlyUrl) {
+    document.querySelectorAll(".calendly-cta").forEach((el) => {
+      el.href = calendlyUrl;
+      el.target = "_blank";
+      el.rel = "noopener noreferrer";
+    });
+  }
+
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 

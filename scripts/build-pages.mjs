@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { services, agents, industries, caseStudies, hubPages } from "./page-content.mjs";
+import { legalPages } from "./legal-content.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
@@ -97,6 +98,13 @@ function footer(prefix) {
           <li><a href="${pageHref(prefix)}#about">About</a></li>
         </ul>
       </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="${pageHref(prefix, "privacy")}">Privacy Policy</a></li>
+          <li><a href="${pageHref(prefix, "terms")}">Terms of Service</a></li>
+        </ul>
+      </div>
     </div>
     <div class="container footer-bottom">
       <p>&copy; <span id="year"></span> Vyrenlo. All rights reserved.</p>
@@ -131,7 +139,7 @@ function shell({ depth, title, description, active, main }) {
         <span></span><span></span><span></span>
       </button>
       ${navLinks(prefix, active)}
-      <a class="btn btn-primary nav-cta" href="${pageHref(prefix, "contact")}">Schedule a Consultation</a>
+      <a class="btn btn-primary nav-cta calendly-cta" href="${pageHref(prefix, "contact")}">Schedule a Consultation</a>
     </nav>
   </header>
   <main>
@@ -152,7 +160,7 @@ function serviceMain(s) {
         <h1>${esc(s.heroTitle)}</h1>
         <p class="page-lead">${esc(s.heroLead)}</p>
         <div class="page-hero-actions">
-          <a class="btn btn-primary btn-lg" href="${pageHref("../..", "contact")}">Book a Call</a>
+          <a class="btn btn-primary btn-lg calendly-cta" href="${pageHref("../..", "contact")}">Book a Call</a>
           <a class="btn btn-ghost btn-lg" href="${pageHref("../..")}#services">All services</a>
         </div>
       </div>
@@ -180,7 +188,7 @@ function serviceMain(s) {
     <section class="section cta-band">
       <div class="container cta-band-inner">
         <h2>Ready to revolutionize with ${esc(s.title)}?</h2>
-        <a class="btn btn-primary" href="${pageHref("../..", "contact")}">Book a Call</a>
+        <a class="btn btn-primary calendly-cta" href="${pageHref("../..", "contact")}">Book a Call</a>
       </div>
     </section>
     <section class="section">
@@ -197,7 +205,7 @@ function serviceMain(s) {
           <h2>Get Vyrenlo updates and book meetings to boost your business.</h2>
           <p class="section-desc"><a href="mailto:contact@vyrenlo.com">contact@vyrenlo.com</a> · <a href="mailto:info@vyrenlo.com">info@vyrenlo.com</a></p>
         </div>
-        <a class="btn btn-primary btn-lg" href="${pageHref("../..", "contact")}">Connect now</a>
+        <a class="btn btn-primary btn-lg calendly-cta" href="${pageHref("../..", "contact")}">Book a 30-min call</a>
       </div>
     </section>`;
 }
@@ -209,7 +217,7 @@ function agentMain(a) {
         <p class="eyebrow">AI Agent</p>
         <h1>${esc(a.heroTitle)}</h1>
         <p class="page-lead">${esc(a.heroLead)}</p>
-        <a class="btn btn-primary btn-lg" href="${pageHref("../..", "contact")}">Book a Call</a>
+        <a class="btn btn-primary btn-lg calendly-cta" href="${pageHref("../..", "contact")}">Book a Call</a>
       </div>
     </section>
     <section class="section">
@@ -232,7 +240,7 @@ function agentMain(a) {
     <section class="section cta-band">
       <div class="container cta-band-inner">
         <h2>Deploy your ${esc(a.title)} with Vyrenlo</h2>
-        <a class="btn btn-primary" href="${pageHref("../..", "contact")}">Schedule a Consultation</a>
+        <a class="btn btn-primary calendly-cta" href="${pageHref("../..", "contact")}">Schedule a Consultation</a>
       </div>
     </section>`;
 }
@@ -244,7 +252,7 @@ function industryMain(i) {
         <p class="eyebrow">Industry</p>
         <h1>${esc(i.heroTitle)}</h1>
         <p class="page-lead">${esc(i.heroLead)}</p>
-        <a class="btn btn-primary btn-lg" href="${pageHref("../..", "contact")}">Book a Call</a>
+        <a class="btn btn-primary btn-lg calendly-cta" href="${pageHref("../..", "contact")}">Book a Call</a>
       </div>
     </section>
     <section class="section">
@@ -296,7 +304,7 @@ function caseStudyMain(c) {
         <ul class="check-list">
           ${c.impact.map((x) => `<li>${esc(x)}</li>`).join("\n          ")}
         </ul>
-        <a class="btn btn-primary" href="${pageHref("../..", "contact")}">Start a similar project</a>
+        <a class="btn btn-primary calendly-cta" href="${pageHref("../..", "contact")}">Start a similar project</a>
       </div>
     </section>`;
 }
@@ -312,6 +320,28 @@ function caseStudiesHub() {
     <section class="section">
       <div class="container cases-grid">
         ${caseStudies.map((c) => `<article class="case-card"><span class="case-tag">${esc(c.tag)}</span><h3><a href="${pageHref(".", c.slug)}">${esc(c.title)}</a></h3><p>${esc(c.summary)}</p><a class="text-link" href="${pageHref(".", c.slug)}">Read more</a></article>`).join("\n        ")}
+      </div>
+    </section>`;
+}
+
+function legalMain(page, activeSlug) {
+  const body = page.sections
+    .map(
+      (s) =>
+        `<h2>${esc(s.heading)}</h2>\n${s.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("\n")}`
+    )
+    .join("\n");
+  return `
+    <section class="page-hero page-hero-sm">
+      <div class="container page-hero-inner">
+        <h1>${esc(page.title)}</h1>
+        <p class="page-lead">Last updated: ${esc(page.updated)}</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container prose-block legal-prose">
+        ${body}
+        <p class="legal-note"><a href="${pageHref("..", activeSlug === "privacy" ? "terms" : "privacy")}">${activeSlug === "privacy" ? "Terms of Service" : "Privacy Policy"}</a></p>
       </div>
     </section>`;
 }
@@ -332,6 +362,9 @@ function contactPage() {
             <li><a href="mailto:info@vyrenlo.com">info@vyrenlo.com</a></li>
             <li>vyrenlo.com</li>
           </ul>
+          <p style="margin-top:1.25rem">
+            <a class="btn btn-primary calendly-cta" href="#">Book a 30-min discovery call</a>
+          </p>
         </div>
         <form class="contact-form" action="#" method="post" id="contact-form">
           <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
@@ -420,6 +453,21 @@ writePage(
   })
 );
 
+for (const key of ["privacy", "terms"]) {
+  const page = legalPages[key];
+  writePage(
+    page.slug,
+    "index.html",
+    shell({
+      depth: 1,
+      title: page.metaTitle,
+      description: page.metaDescription,
+      active: key,
+      main: legalMain(page, page.slug),
+    })
+  );
+}
+
 console.log(
-  `Generated ${services.length} services, ${agents.length} agents, ${industries.length} industries, ${caseStudies.length} case studies, plus hub pages.`
+  `Generated ${services.length} services, ${agents.length} agents, ${industries.length} industries, ${caseStudies.length} case studies, legal pages, and hub pages.`
 );

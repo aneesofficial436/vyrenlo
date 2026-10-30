@@ -190,6 +190,21 @@
   margin-top: 0;
 }
 
+.legal-prose h2 {
+  font-size: 1.15rem;
+  margin-top: 2rem;
+}
+
+.legal-prose p {
+  color: var(--text-muted);
+}
+
+.legal-note {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
 .text-link {
   display: inline-block;
   margin-top: 0.75rem;
