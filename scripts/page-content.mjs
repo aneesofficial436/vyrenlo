@@ -416,18 +416,38 @@ export const caseStudies = [
     solution: "",
     impact: [],
   },
-  { slug: "ecom-email", title: "E-Commerce Email Intelligence", tag: "Retail", summary: "Personalized lifecycle email and merchandising signals for a growing online retailer.", challenge: "Manual campaigns couldn't keep pace with catalog changes and segment complexity.", solution: "Vyrenlo built an AI-assisted email ops layer tied to storefront events and inventory.", impact: ["Higher repeat purchase rate", "Automated segment refreshes", "Creative variants tested weekly"] },
-  { slug: "ai-powered-ebook-platform", title: "Digital Reading Platform", tag: "Media", summary: "A multi-device reading experience with discovery, libraries, and publisher tools.", challenge: "Legacy app struggled with onboarding and cross-device sync.", solution: "Greenfield web and mobile clients with unified accounts and recommendation feeds.", impact: ["Improved session length", "Lower support tickets", "Publisher self-service uploads"] },
-  { slug: "reporting-agent", title: "Executive Reporting Agent", tag: "Analytics", summary: "Natural-language reports from warehouse data on a schedule and on demand.", challenge: "Analysts spent days assembling slides from conflicting spreadsheets.", solution: "Agent with governed metrics, Slack delivery, and drill-down to SQL.", impact: ["Hours saved each week", "Single source of truth", "Faster leadership decisions"] },
-  { slug: "cloud-blueprint", title: "Cloud Blueprint Generator", tag: "Cloud", summary: "Infrastructure plans for AWS and Azure in minutes with compliance checklists.", challenge: "Architecture reviews bottlenecked new product launches.", solution: "Template-driven generator with cost estimates and security baselines.", impact: ["Planning cut from weeks to hours", "Fewer misconfigurations", "Repeatable landing zones"] },
-  { slug: "educonnect-platform", title: "EduConnect Platform", tag: "EdTech", summary: "Students, teachers, and admins on one adaptive learning system.", challenge: "Disparate tools caused gaps in progress visibility.", solution: "Unified portal with quizzes, parent dashboards, and teacher authoring.", impact: ["Higher engagement", "Admin time reduced", "Clear progress tracking"] },
-  { slug: "vanilla-voice", title: "Voice Qualification Engine", tag: "Voice AI", summary: "Outbound voice agents qualifying leads with CRM sync.", challenge: "SDRs couldn't reach inbound volume in multiple time zones.", solution: "Low-latency voice stack with human handoff and call analytics.", impact: ["Zero manual dialing for tier-1", "Faster pipeline velocity", "Consistent qualification scripts"] },
-  { slug: "lingua-desk", title: "LinguaDesk Multilingual Support", tag: "Support", summary: "24/7 text and voice support across languages without scaling headcount.", challenge: "Global launch required multilingual tier-1 overnight.", solution: "RAG assistants plus translation with escalation to native speakers.", impact: ["Global coverage", "Stable CSAT during launch", "Lower cost per ticket"] },
-  { slug: "shift-desk", title: "ShiftDesk Workforce Hub", tag: "Operations", summary: "Time tracking, tasks, and payroll reporting for hourly teams.", challenge: "Spreadsheets caused payroll errors and no real-time visibility.", solution: "Single platform with mobile clock-in and manager dashboards.", impact: ["Fewer timesheet errors", "Real-time labor view", "Automated payroll exports"] },
-  { slug: "legalease-ai", title: "LegalEase Guidance", tag: "Legal", summary: "After-hours legal and tax guidance with clear disclaimers and audit logs.", challenge: "Clients needed quick answers but firm capacity was limited.", solution: "Private assistant with curated corpus and mandatory human review paths.", impact: ["24/7 basic guidance", "Lower consultation backlog", "Documented interactions"] },
-  { slug: "sales-insight-agent", title: "Sales Insight Agent", tag: "Revenue", summary: "Unified sales analytics with anomaly detection.", challenge: "Revenue meetings relied on stale exports from multiple systems.", solution: "Daily briefings and alert rules on pipeline and SKU performance.", impact: ["Anomalies caught early", "Aligned sales and ops", "Less manual reporting"] },
-  { slug: "blak-box", title: "BlakBox Performance Analytics", tag: "Analytics", summary: "Track and optimize operational KPIs with proactive alerts.", challenge: "Teams discovered issues only after customer impact.", solution: "Dashboards plus AI summaries highlighting outliers.", impact: ["Proactive fixes", "Clear ownership on metrics", "Improved uptime"] },
-  { slug: "product-comparison-extension", title: "Product Comparison Extension", tag: "E-Commerce", summary: "Browser extension comparing specs, price, and reviews.", challenge: "Shoppers left the site to research competitors.", solution: "Side-by-side comparisons with affiliate-safe data sources.", impact: ["Higher purchase confidence", "Lower bounce", "Affiliate revenue uplift"] },
+  {
+    slug: "support-knowledge-copilot",
+    title: "Support Knowledge Copilot",
+    tag: "Generative AI",
+    summary:
+      "A RAG-powered assistant embedded in a B2B SaaS help desk so customers and support staff get accurate answers from docs, release notes, and past tickets—with escalation when confidence is low.",
+    challenge:
+      "Support volume grew faster than headcount. Agents retyped the same answers, documentation drifted from the product, and new hires took weeks to become productive.",
+    solution:
+      "Vyrenlo indexed knowledge sources with access control, built a retrieval layer with citation snippets, and integrated the copilot into the existing ticket UI. Suggested replies and customer-facing chat share one grounded knowledge base; low-confidence turns route to a human with full context.",
+    impact: [
+      "Repeat questions handled without manual copy-paste from wikis",
+      "New agents onboard faster with in-flow guidance",
+      "Product team sees which docs gaps drive escalations",
+    ],
+  },
+  {
+    slug: "operations-workflow-agent",
+    title: "Operations Workflow Agent",
+    tag: "Agentic AI",
+    summary:
+      "A multi-step agent that reads inbound vendor invoices, matches purchase orders, flags exceptions, and prepares ERP-ready entries for accounts-payable review.",
+    challenge:
+      "AP clerks spent hours downloading PDFs, checking line items in email threads, and re-keying data into the ERP. Exceptions stalled in inboxes without a clear audit trail.",
+    solution:
+      "Vyrenlo deployed document extraction, business rules for PO matching, and an agent that orchestrates lookups in the ERP and notifications in Slack. Every run logs sources and decisions; humans approve postings and handle exceptions only.",
+    impact: [
+      "Routine invoices queued for review instead of manual data entry",
+      "Exceptions surfaced with reason codes and linked documents",
+      "Audit-friendly history for who approved each posting",
+    ],
+  },
 ];
 
 export const hubPages = {
@@ -435,7 +455,7 @@ export const hubPages = {
     title: "Case Studies",
     metaTitle: "Case Studies | Vyrenlo",
     heroTitle: "How Vyrenlo powers growth",
-    heroLead: "Selected engagements across retail, SaaS, voice AI, cloud, and regulated industries.",
+    heroLead: "Healthcare operations software, AI-assisted support, and agentic workflows that streamline back-office processes.",
   },
   contact: {
     title: "Contact",
