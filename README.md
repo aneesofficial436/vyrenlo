@@ -50,7 +50,7 @@ Cyberify-style detail pages live under:
 - `service/<slug>/` — 12 services (e.g. `service/quality-assurance/`)
 - `agent/<slug>/` — 12 AI agents
 - `industry/<slug>/` — 12 industries
-- `case-studies/` — hub plus individual case studies
+- `case-studies/` — hub plus individual case studies (long-form copy in `scripts/case-study-extended.mjs`)
 - `contact/` — contact form
 
 Content is defined in `scripts/page-content.mjs`. Regenerate HTML after edits:

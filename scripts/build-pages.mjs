@@ -3,6 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { services, agents, industries, caseStudies, hubPages } from "./page-content.mjs";
 import { legalPages } from "./legal-content.mjs";
+import { extendedCaseStudies } from "./case-study-extended.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
@@ -286,6 +287,9 @@ function industryMain(i) {
 }
 
 function caseStudyMain(c) {
+  const ext = extendedCaseStudies[c.slug];
+  if (ext) return extendedCaseStudyMain(c, ext);
+
   return `
     <section class="page-hero page-hero-sm">
       <div class="container page-hero-inner">
@@ -305,6 +309,69 @@ function caseStudyMain(c) {
           ${c.impact.map((x) => `<li>${esc(x)}</li>`).join("\n          ")}
         </ul>
         <a class="btn btn-primary calendly-cta" href="${pageHref("../..", "contact")}">Start a similar project</a>
+      </div>
+    </section>`;
+}
+
+function extendedCaseStudyMain(c, ext) {
+  const facts = ext.heroFacts
+    .map((f) => `<li>${esc(f)}</li>`)
+    .join("\n            ");
+  const tagPills = (ext.tags || [])
+    .map((t) => `<span class="tag-pill">${esc(t)}</span>`)
+    .join("\n          ");
+
+  const sections = ext.sections
+    .map((s) => {
+      let html = `<h2>${esc(s.heading)}</h2>`;
+      if (s.paragraphs) {
+        html += s.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("\n");
+      }
+      if (s.list) {
+        html += `<ul class="check-list">${s.list.map((li) => `<li>${esc(li)}</li>`).join("")}</ul>`;
+      }
+      if (s.paragraphsAfter) {
+        html += s.paragraphsAfter.map((p) => `<p>${esc(p)}</p>`).join("\n");
+      }
+      if (s.pre) {
+        html += `<pre class="arch-diagram">${esc(s.pre)}</pre>`;
+      }
+      return html;
+    })
+    .join("\n");
+
+  const techRows = ext.techTable
+    .map(([layer, choice]) => `<tr><th scope="row">${esc(layer)}</th><td>${esc(choice)}</td></tr>`)
+    .join("\n            ");
+
+  return `
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <span class="case-tag">${esc(c.tag)}</span>
+        <p class="eyebrow">Healthcare operations software</p>
+        <h1>${esc(ext.heroHeadline)}</h1>
+        <p class="page-lead">${esc(ext.heroSubhead)}</p>
+        <div class="tag-grid case-tags">${tagPills}</div>
+      </div>
+    </section>
+    <section class="section section-muted">
+      <div class="container">
+        <ul class="hero-facts check-list">${facts}</ul>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container prose-block legal-prose case-prose">
+        ${sections}
+        <h2>Technology</h2>
+        <div class="tech-table-wrap">
+          <table class="tech-table">
+            <thead><tr><th scope="col">Layer</th><th scope="col">Choice</th></tr></thead>
+            <tbody>${techRows}</tbody>
+          </table>
+        </div>
+        <p style="margin-top:2rem">
+          <a class="btn btn-primary calendly-cta" href="${pageHref("../..", "contact")}">Discuss a similar project</a>
+        </p>
       </div>
     </section>`;
 }
@@ -419,10 +486,11 @@ for (const i of industries) {
 }
 
 for (const c of caseStudies) {
+  const ext = extendedCaseStudies[c.slug];
   const html = shell({
     depth: 2,
-    title: `${c.title} | Vyrenlo Case Study`,
-    description: c.summary,
+    title: ext ? ext.metaTitle : `${c.title} | Vyrenlo Case Study`,
+    description: ext ? ext.metaDescription : c.summary,
     active: "case-studies",
     main: caseStudyMain(c),
   });

@@ -406,6 +406,16 @@ export const industries = [
 ];
 
 export const caseStudies = [
+  {
+    slug: "personal-fund-subsystem",
+    title: "Personal Fund Subsystem",
+    tag: "Healthcare",
+    summary:
+      "A web application for institutions that hold and disburse patient personal funds. Staff search patient accounts, post deposits, withdrawals, adjustments, and holds, review balances and memos, and run the reports used for allowances, discharged balances, and accounting reconciliation.",
+    challenge: "",
+    solution: "",
+    impact: [],
+  },
   { slug: "ecom-email", title: "E-Commerce Email Intelligence", tag: "Retail", summary: "Personalized lifecycle email and merchandising signals for a growing online retailer.", challenge: "Manual campaigns couldn't keep pace with catalog changes and segment complexity.", solution: "Vyrenlo built an AI-assisted email ops layer tied to storefront events and inventory.", impact: ["Higher repeat purchase rate", "Automated segment refreshes", "Creative variants tested weekly"] },
   { slug: "ai-powered-ebook-platform", title: "Digital Reading Platform", tag: "Media", summary: "A multi-device reading experience with discovery, libraries, and publisher tools.", challenge: "Legacy app struggled with onboarding and cross-device sync.", solution: "Greenfield web and mobile clients with unified accounts and recommendation feeds.", impact: ["Improved session length", "Lower support tickets", "Publisher self-service uploads"] },
   { slug: "reporting-agent", title: "Executive Reporting Agent", tag: "Analytics", summary: "Natural-language reports from warehouse data on a schedule and on demand.", challenge: "Analysts spent days assembling slides from conflicting spreadsheets.", solution: "Agent with governed metrics, Slack delivery, and drill-down to SQL.", impact: ["Hours saved each week", "Single source of truth", "Faster leadership decisions"] },
