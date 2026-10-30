@@ -25,15 +25,19 @@ Opening folders directly in Chrome (`file:///.../service/generative-ai/`) shows 
 4. **Custom domain:** Pages → your project → **Custom domains** → add `vyrenlo.com` and `www.vyrenlo.com`.
 5. In **DNS** (same Cloudflare account), ensure records point to Pages (usually automatic when you attach the domain).
 
-## Contact form
+## Contact form (Formspree)
 
-The form is client-side only until you connect:
+1. Create a free form at [Formspree](https://formspree.io/) and set notifications to **contact@vyrenlo.com** (confirm that address).
+2. Copy the form URL (e.g. `https://formspree.io/f/abcdefgh`).
+3. Paste it in **`form-config.js`**:
 
-- [Cloudflare Workers](https://developers.cloudflare.com/workers/) + email/API
-- [Formspree](https://formspree.io/) or similar
-- Your CRM webhook
+   ```js
+   window.VYRENLO_FORMSPREE_ENDPOINT = "https://formspree.io/f/your-id";
+   ```
 
-Update the `<form>` `action` and `method` in `index.html` when ready.
+4. Commit, push, and test the form on the live site.
+
+Submissions go to Formspree, which emails your inbox (same Gmail that receives `contact@` / `info@` if you use that address in Formspree).
 
 ## Inner pages
 

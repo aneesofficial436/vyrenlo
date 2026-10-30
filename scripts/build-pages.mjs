@@ -138,6 +138,7 @@ function shell({ depth, title, description, active, main }) {
     ${main}
   </main>
   ${footer(prefix)}
+  <script src="${prefix}/form-config.js"></script>
   <script src="${prefix}/main.js"></script>
 </body>
 </html>`;
@@ -194,7 +195,7 @@ function serviceMain(s) {
       <div class="container contact-strip-inner">
         <div>
           <h2>Get Vyrenlo updates and book meetings to boost your business.</h2>
-          <p class="section-desc">hello@vyrenlo.com</p>
+          <p class="section-desc"><a href="mailto:contact@vyrenlo.com">contact@vyrenlo.com</a> · <a href="mailto:info@vyrenlo.com">info@vyrenlo.com</a></p>
         </div>
         <a class="btn btn-primary btn-lg" href="${pageHref("../..", "contact")}">Connect now</a>
       </div>
@@ -327,16 +328,19 @@ function contactPage() {
       <div class="container contact-grid">
         <div class="contact-copy">
           <ul class="contact-meta">
-            <li><a href="mailto:hello@vyrenlo.com">hello@vyrenlo.com</a></li>
+            <li><a href="mailto:contact@vyrenlo.com">contact@vyrenlo.com</a></li>
+            <li><a href="mailto:info@vyrenlo.com">info@vyrenlo.com</a></li>
             <li>vyrenlo.com</li>
           </ul>
         </div>
         <form class="contact-form" action="#" method="post" id="contact-form">
+          <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <label>Full name<input type="text" name="name" required autocomplete="name" /></label>
           <label>Work email<input type="email" name="email" required autocomplete="email" /></label>
           <label>Company<input type="text" name="company" autocomplete="organization" /></label>
           <label>How can we help?<textarea name="message" rows="4" required></textarea></label>
           <button type="submit" class="btn btn-primary btn-lg">Send message</button>
+          <p class="form-status" data-form-status hidden></p>
         </form>
       </div>
     </section>`;

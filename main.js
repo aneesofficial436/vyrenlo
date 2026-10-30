@@ -53,17 +53,53 @@
 
   const form = document.getElementById("contact-form");
   if (form) {
-    form.addEventListener("submit", (e) => {
+    const statusEl =
+      form.querySelector("[data-form-status]") ||
+      (() => {
+        const p = document.createElement("p");
+        p.className = "form-status";
+        p.setAttribute("data-form-status", "");
+        p.hidden = true;
+        form.appendChild(p);
+        return p;
+      })();
+
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      const endpoint = window.VYRENLO_FORMSPREE_ENDPOINT;
       const btn = form.querySelector('button[type="submit"]');
       const prev = btn.textContent;
-      btn.textContent = "Message ready — connect your backend";
+
+      const showStatus = (text, isError) => {
+        statusEl.hidden = false;
+        statusEl.textContent = text;
+        statusEl.classList.toggle("form-status-error", isError);
+      };
+
+      if (!endpoint) {
+        showStatus("Form is not configured yet. Email us at contact@vyrenlo.com.", true);
+        return;
+      }
+
       btn.disabled = true;
-      setTimeout(() => {
+      btn.textContent = "Sending…";
+      statusEl.hidden = true;
+
+      try {
+        const res = await fetch(endpoint, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+        if (!res.ok) throw new Error("Request failed");
+        showStatus("Thanks — we received your message and will reply within one business day.", false);
+        form.reset();
+      } catch {
+        showStatus("Something went wrong. Please email contact@vyrenlo.com directly.", true);
+      } finally {
         btn.textContent = prev;
         btn.disabled = false;
-        form.reset();
-      }, 2500);
+      }
     });
   }
 

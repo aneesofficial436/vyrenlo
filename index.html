@@ -417,11 +417,13 @@
           <h2>Let's build what's next</h2>
           <p>Tell us about your goals. We'll respond within one business day with next steps—no obligation.</p>
           <ul class="contact-meta">
-            <li><a href="mailto:hello@vyrenlo.com">hello@vyrenlo.com</a></li>
+            <li><a href="mailto:contact@vyrenlo.com">contact@vyrenlo.com</a></li>
+            <li><a href="mailto:info@vyrenlo.com">info@vyrenlo.com</a></li>
             <li>vyrenlo.com</li>
           </ul>
         </div>
         <form class="contact-form" action="#" method="post" id="contact-form">
+          <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <label>
             Full name
             <input type="text" name="name" required autocomplete="name" />
@@ -439,7 +441,7 @@
             <textarea name="message" rows="4" required></textarea>
           </label>
           <button type="submit" class="btn btn-primary btn-lg">Send message</button>
-          <p class="form-note">Deploy tip: connect this form to Cloudflare Workers, Formspree, or your CRM.</p>
+          <p class="form-status" data-form-status hidden></p>
         </form>
       </div>
     </section>
@@ -485,6 +487,7 @@
     </div>
   </footer>
 
+  <script src="form-config.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
