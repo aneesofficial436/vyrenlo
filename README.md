@@ -43,6 +43,17 @@ Submissions go to Formspree, which emails your inbox (same Gmail that receives `
 
 Set **`VYRENLO_CALENDLY_URL`** in `form-config.js`. Elements with class **`calendly-cta`** open that link in a new tab (header, hero, service pages, contact page).
 
+## SEO (Google Search Console)
+
+After updating pages, regenerate the sitemap:
+
+```bash
+node scripts/build-pages.mjs
+node scripts/generate-sitemap.mjs
+```
+
+Then in [Google Search Console](https://search.google.com/search-console): add property **vyrenlo.com**, verify via DNS or Cloudflare, submit **https://vyrenlo.com/sitemap.xml**, and request indexing for the homepage and key case studies.
+
 ## Inner pages
 
 Cyberify-style detail pages live under:
