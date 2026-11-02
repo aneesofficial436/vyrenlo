@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="40" y1="40" x2="360" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E3A8A"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="80" y1="60" x2="320" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="88" fill="#F4F6F9"/>
+  <rect x="24" y="24" width="352" height="352" rx="72" fill="url(#bg)"/>
+  <rect x="24" y="24" width="352" height="352" rx="72" fill="url(#shine)"/>
+  <text x="200" y="268" text-anchor="middle" font-family="Inter, Segoe UI, system-ui, sans-serif" font-weight="800" font-size="200" fill="#FFFFFF">V</text>
+</svg>

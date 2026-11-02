@@ -10,6 +10,7 @@ const SITE = "https://vyrenlo.com";
 const paths = [
   "/",
   "/contact/",
+  "/tools/website-audit/",
   "/case-studies/",
   "/privacy/",
   "/terms/",

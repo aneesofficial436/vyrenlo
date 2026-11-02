@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Personal Fund Subsystem dashboard preview">
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1E3A8A"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="#F4F6F9"/>
+  <rect x="24" y="24" width="752" height="40" rx="8" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <rect x="40" y="38" width="120" height="12" rx="4" fill="#CBD5E1"/>
+  <rect x="24" y="80" width="180" height="396" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <rect x="44" y="104" width="140" height="10" rx="3" fill="#2563EB" opacity="0.85"/>
+  <rect x="44" y="130" width="100" height="8" rx="3" fill="#CBD5E1"/>
+  <rect x="44" y="152" width="110" height="8" rx="3" fill="#CBD5E1"/>
+  <rect x="44" y="174" width="95" height="8" rx="3" fill="#CBD5E1"/>
+  <rect x="220" y="80" width="556" height="180" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <text x="240" y="118" fill="#64748B" font-family="system-ui,sans-serif" font-size="13">Patient personal funds</text>
+  <rect x="240" y="136" width="200" height="36" rx="8" fill="#F1F5F9"/>
+  <rect x="240" y="188" width="480" height="8" rx="4" fill="url(#accent)" opacity="0.45"/>
+  <rect x="240" y="210" width="360" height="8" rx="4" fill="#E2E8F0"/>
+  <rect x="220" y="276" width="556" height="200" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <rect x="240" y="300" width="516" height="28" rx="6" fill="#F8FAFC"/>
+  <rect x="240" y="344" width="516" height="28" rx="6" fill="#F8FAFC"/>
+  <rect x="240" y="388" width="516" height="28" rx="6" fill="#F8FAFC"/>
+  <rect x="640" y="300" width="80" height="20" rx="4" fill="#0F766E" opacity="0.3"/>
+</svg>

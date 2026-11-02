@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Free website audit — check title, meta description, mobile readiness, and SEO basics. No sign-up required." />
+  <title>Free Website Audit | Vyrenlo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../../styles-inner.css" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a class="logo" href="../../index.html" aria-label="Vyrenlo home">
+        <span class="logo-mark">V</span>
+        <span class="logo-text">Vyrenlo</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../../index.html#services">Services</a></li>
+        <li><a href="../../index.html#work">Work</a></li>
+        <li><a href="../../index.html#pilot">Pilot</a></li>
+        <li><a href="../../index.html#process">Process</a></li>
+        <li><a href="../../index.html#faq">FAQ</a></li>
+        <li><a href="../../contact/index.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a class="btn btn-ghost btn-sm nav-audit" href="index.html" aria-current="page">Free audit</a>
+        <a class="btn btn-primary nav-cta calendly-cta" href="../../contact/index.html">Book a call</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    <section class="page-hero">
+      <div class="container page-hero-inner">
+        <p class="eyebrow">Free tool</p>
+        <h1>Website audit</h1>
+        <p class="page-lead">Enter any public URL. We check SEO and accessibility basics from the homepage HTML—no account required.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container audit-tool-wrap">
+        <form class="audit-form" id="audit-form">
+          <label class="audit-url-label">
+            Website URL
+            <input type="url" name="url" required placeholder="https://yourcompany.com" autocomplete="url" />
+          </label>
+          <button type="submit" class="btn btn-primary btn-lg">Run audit</button>
+        </form>
+        <p class="form-status" id="audit-status" hidden></p>
+        <div id="audit-results" class="audit-results" hidden></div>
+        <p class="audit-note">Some sites block automated fetchers. If the audit fails, use the PageSpeed link in the results or <a href="mailto:contact@vyrenlo.com">email us</a> for a manual review.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid footer-grid-compact">
+      <div class="footer-brand">
+        <a class="logo" href="../../index.html">
+          <span class="logo-mark">V</span>
+          <span class="logo-text">Vyrenlo</span>
+        </a>
+        <p>AI solutions and software engineering for ambitious businesses.</p>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../../index.html#work">Case studies</a></li>
+          <li><a href="../../index.html#pilot">One-week pilot</a></li>
+          <li><a href="../../contact/index.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../../privacy/index.html">Privacy Policy</a></li>
+          <li><a href="../../terms/index.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Vyrenlo. All rights reserved.</p>
+    </div>
+  </footer>
+  <a class="chat-fab" href="../../contact/index.html">Ask us anything</a>
+  <script src="../../form-config.js"></script>
+  <script src="../../main.js"></script>
+  <script src="audit.js"></script>
+</body>
+</html>

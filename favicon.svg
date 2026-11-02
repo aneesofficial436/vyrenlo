@@ -2,10 +2,9 @@
   <rect width="32" height="32" rx="8" fill="url(#g)"/>
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#6EE7FF"/>
-      <stop offset=".5" stop-color="#A78BFA"/>
-      <stop offset="1" stop-color="#F472B6"/>
+      <stop stop-color="#1E3A8A"/>
+      <stop offset="1" stop-color="#2563EB"/>
     </linearGradient>
   </defs>
-  <text x="16" y="22" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="18" fill="#05060A">V</text>
+  <text x="16" y="22" text-anchor="middle" font-family="system-ui,sans-serif" font-weight="800" font-size="18" fill="#FFFFFF">V</text>
 </svg>

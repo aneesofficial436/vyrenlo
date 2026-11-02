@@ -43,6 +43,20 @@ Submissions go to Formspree, which emails your inbox (same Gmail that receives `
 
 Set **`VYRENLO_CALENDLY_URL`** in `form-config.js`. Elements with class **`calendly-cta`** open that link in a new tab (header, hero, service pages, contact page).
 
+## Free website audit
+
+The audit tool lives at **`tools/website-audit/`**. It fetches public HTML through a third-party CORS proxy (`api.allorigins.win`) and scores basic SEO checks. Some sites block automated fetchers—in that case users see a link to [PageSpeed Insights](https://pagespeed.web.dev/).
+
+For a production-grade audit (no third-party proxy), deploy a small serverless function on Cloudflare Workers that fetches the URL server-side and returns the HTML to your audit page.
+
+## Homepage assets
+
+Case study carousel images are SVG previews in **`assets/case-studies/`**. Replace them with real screenshots (PNG or WebP, ~1600×1000) and update the `<img src="...">` paths in **`index.html`** for stronger social proof.
+
+## Contact form fields
+
+The contact form includes **`timeline`** (radio). In Formspree, enable the field or map it in the Formspree dashboard so submissions show the selected timeline.
+
 ## SEO (Google Search Console)
 
 After updating pages, regenerate the sitemap:

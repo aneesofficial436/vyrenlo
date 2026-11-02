@@ -2,7 +2,7 @@
 
 .page-hero {
   padding: calc(var(--header-h) + 3rem) 0 3.5rem;
-  background: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(110, 231, 255, 0.12), transparent),
+  background: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(37, 99, 235, 0.08), transparent),
     var(--bg-elevated);
   border-bottom: 1px solid var(--border);
 }

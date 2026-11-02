@@ -33,6 +33,18 @@ function navLinks(prefix, active) {
   const s = (slug, label) =>
     `<li><a href="${pageHref(prefix, "service", slug)}"${active === `service-${slug}` ? ' aria-current="page"' : ""}>${esc(label)}</a></li>`;
   const serviceItems = services.map((x) => s(x.slug, x.title)).join("\n          ");
+  const agentItems = agents
+    .map(
+      (a) =>
+        `<li><a href="${pageHref(prefix, "agent", a.slug)}"${active === `agent-${a.slug}` ? ' aria-current="page"' : ""}>${esc(a.title)}</a></li>`
+    )
+    .join("\n            ");
+  const industryItems = industries
+    .map(
+      (i) =>
+        `<li><a href="${pageHref(prefix, "industry", i.slug)}"${active === `industry-${i.slug}` ? ' aria-current="page"' : ""}>${esc(i.title)}</a></li>`
+    )
+    .join("\n            ");
   return `
       <ul class="nav-links">
         <li class="nav-item-has-menu">
@@ -41,22 +53,36 @@ function navLinks(prefix, active) {
           ${serviceItems}
           </ul>
         </li>
+        <!-- Nav: Agents dropdown hidden while pages are being updated
         <li class="nav-item-has-menu">
           <button type="button" class="nav-parent" aria-expanded="false" aria-haspopup="true">Agents</button>
           <ul class="nav-dropdown">
-            ${agents.map((a) => `<li><a href="${pageHref(prefix, "agent", a.slug)}"${active === `agent-${a.slug}` ? ' aria-current="page"' : ""}>${esc(a.title)}</a></li>`).join("\n            ")}
+            ${agentItems}
           </ul>
         </li>
+        -->
+        <!-- Nav: Industries dropdown hidden while pages are being updated
         <li class="nav-item-has-menu">
           <button type="button" class="nav-parent" aria-expanded="false" aria-haspopup="true">Industries</button>
           <ul class="nav-dropdown nav-dropdown-wide">
-            ${industries.map((i) => `<li><a href="${pageHref(prefix, "industry", i.slug)}"${active === `industry-${i.slug}` ? ' aria-current="page"' : ""}>${esc(i.title)}</a></li>`).join("\n            ")}
+            ${industryItems}
           </ul>
         </li>
-        <li><a href="${pageHref(prefix, "case-studies")}"${active === "case-studies" ? ' aria-current="page"' : ""}>Case Studies</a></li>
+        -->
+        <li><a href="${pageHref(prefix)}#work">Work</a></li>
+        <li><a href="${pageHref(prefix)}#pilot">Pilot</a></li>
+        <li><a href="${pageHref(prefix)}#process">Process</a></li>
+        <li><a href="${pageHref(prefix)}#faq">FAQ</a></li>
         <li><a href="${pageHref(prefix, "contact")}"${active === "contact" ? ' aria-current="page"' : ""}>Contact</a></li>
-        <li><a href="${pageHref(prefix)}#insights">Insights</a></li>
       </ul>`;
+}
+
+function navActions(prefix) {
+  return `
+      <div class="nav-actions">
+        <a class="btn btn-ghost btn-sm nav-audit" href="${pageHref(prefix, "tools", "website-audit")}">Free audit</a>
+        <a class="btn btn-primary nav-cta calendly-cta" href="${pageHref(prefix, "contact")}">Book a call</a>
+      </div>`;
 }
 
 function footer(prefix) {
@@ -130,6 +156,7 @@ function shell({ depth, title, description, active, main }) {
   <link rel="icon" href="${prefix}/favicon.svg" type="image/svg+xml" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" id="top">
     <nav class="nav container">
       <a class="logo" href="${pageHref(prefix)}" aria-label="Vyrenlo home">
@@ -140,12 +167,13 @@ function shell({ depth, title, description, active, main }) {
         <span></span><span></span><span></span>
       </button>
       ${navLinks(prefix, active)}
-      <a class="btn btn-primary nav-cta calendly-cta" href="${pageHref(prefix, "contact")}">Schedule a Consultation</a>
+      ${navActions(prefix)}
     </nav>
   </header>
-  <main>
+  <main id="main">
     ${main}
   </main>
+  <a class="chat-fab" href="${pageHref(prefix, "contact")}">Ask us anything</a>
   ${footer(prefix)}
   <script src="${prefix}/form-config.js"></script>
   <script src="${prefix}/main.js"></script>
@@ -437,9 +465,18 @@ function contactPage() {
           <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <label>Full name<input type="text" name="name" required autocomplete="name" /></label>
           <label>Work email<input type="email" name="email" required autocomplete="email" /></label>
-          <label>Company<input type="text" name="company" autocomplete="organization" /></label>
-          <label>How can we help?<textarea name="message" rows="4" required></textarea></label>
-          <button type="submit" class="btn btn-primary btn-lg">Send message</button>
+          <label>Company or website<input type="text" name="company" autocomplete="organization" /></label>
+          <label>What are you building?<textarea name="message" rows="3" required placeholder="Brief description of your product or workflow"></textarea></label>
+          <fieldset class="timeline-fieldset">
+            <legend>Timeline</legend>
+            <div class="timeline-options">
+              <label class="timeline-option"><input type="radio" name="timeline" value="ASAP" required /> ASAP</label>
+              <label class="timeline-option"><input type="radio" name="timeline" value="1-3 months" /> 1–3 months</label>
+              <label class="timeline-option"><input type="radio" name="timeline" value="Later" /> Later</label>
+              <label class="timeline-option"><input type="radio" name="timeline" value="Not sure" /> Not sure yet</label>
+            </div>
+          </fieldset>
+          <button type="submit" class="btn btn-primary btn-lg">Send project details</button>
           <p class="form-status" data-form-status hidden></p>
         </form>
       </div>

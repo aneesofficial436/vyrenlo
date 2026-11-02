@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1584" height="396" viewBox="0 0 1584 396" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1584" y2="396" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4F6F9"/>
+      <stop offset="0.5" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="900" y1="0" x2="1584" y2="396" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#0F766E" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#1E3A8A"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <rect width="1584" height="396" fill="url(#sky)"/>
+  <rect width="1584" height="396" fill="url(#glow)"/>
+  <path d="M0 280 Q400 220 800 260 T1584 240 V396 H0 Z" fill="#E2E8F0" fill-opacity="0.65"/>
+  <text x="120" y="168" font-family="Inter, Segoe UI, system-ui, sans-serif" font-weight="700" font-size="52" fill="#0F172A" letter-spacing="-1">Build what runs the business.</text>
+  <text x="120" y="228" font-family="Inter, Segoe UI, system-ui, sans-serif" font-weight="500" font-size="24" fill="#64748B">AI, custom software, healthcare and operations</text>
+  <rect x="120" y="268" width="48" height="48" rx="12" fill="url(#mark)"/>
+  <text x="144" y="300" text-anchor="middle" font-family="Inter, Segoe UI, system-ui, sans-serif" font-weight="800" font-size="28" fill="#FFFFFF">V</text>
+  <text x="184" y="302" font-family="Inter, Segoe UI, system-ui, sans-serif" font-weight="700" font-size="28" fill="#1D4ED8">Vyrenlo</text>
+</svg>
