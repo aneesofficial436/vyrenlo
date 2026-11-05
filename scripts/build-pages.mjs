@@ -99,7 +99,7 @@ function footer(prefix) {
     <div class="container footer-grid">
       <div class="footer-brand">
         <a class="logo" href="${pageHref(prefix)}">
-          <span class="logo-mark">V</span>
+          <img class="logo-mark" src="${prefix}/assets/brand/logo-mark.png" alt="" width="40" height="40" />
           <span class="logo-text">Vyrenlo</span>
         </a>
         <p>AI solutions and software engineering for ambitious businesses.</p>
@@ -160,7 +160,7 @@ function shell({ depth, title, description, active, main }) {
   <header class="site-header" id="top">
     <nav class="nav container">
       <a class="logo" href="${pageHref(prefix)}" aria-label="Vyrenlo home">
-        <span class="logo-mark">V</span>
+        <img class="logo-mark" src="${prefix}/assets/brand/logo-mark.png" alt="" width="40" height="40" />
         <span class="logo-text">Vyrenlo</span>
       </a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">

@@ -1,6 +1,6 @@
 # Vyrenlo brand assets (LinkedIn)
 
-Matches site colors: `#05060A` background, gradient `#6EE7FF` → `#A78BFA` → `#F472B6`.
+Website palette, taken from `vyrenlo-logo.png`: navy `#102A50`, teal `#0BBDB3`, cream `#F5F3EF`. The header mark is `logo-mark.png`.
 
 ## LinkedIn upload sizes
 
