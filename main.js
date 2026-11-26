@@ -227,7 +227,8 @@
         if (!url) return;
         const a = document.createElement("a");
         a.href = url;
-        a.download = "vyrenlo-pfs-case-study.pdf";
+        const leaf = url.split("/").pop();
+        a.download = leaf && leaf.includes(".") ? leaf : "vyrenlo-case-study.pdf";
         a.rel = "noopener";
         document.body.appendChild(a);
         a.click();

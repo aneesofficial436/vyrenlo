@@ -24,8 +24,27 @@ Opening folders directly in Chrome (`file:///.../service/generative-ai/`) shows 
    - **Framework preset:** None
    - **Build command:** (leave empty)
    - **Build output directory:** `/` (project root)
+   - **Production branch:** `main` (must match the branch you push)
 4. **Custom domain:** Pages → your project → **Custom domains** → add `vyrenlo.com` and `www.vyrenlo.com`.
 5. In **DNS** (same Cloudflare account), ensure records point to Pages (usually automatic when you attach the domain).
+
+### If production looks older than localhost
+
+This site is **static**—Cloudflare does not run `build-pages` for you. Before pushing, generate HTML and commit the outputs:
+
+```bash
+node scripts/build-pages.mjs
+node scripts/generate-sitemap.mjs
+git add -A && git commit && git push
+```
+
+**Pre-push checklist:** `case-studies/**/index.html`, `assets/case-studies/**`, `styles-inner.css`, `main.js`, `index.html`, and `sitemap.xml` should be in the commit (not only files under `scripts/`).
+
+**Live vs GitHub:** Opening files on github.com shows markdown/plain HTML, not the styled site. Preview at **https://vyrenlo.com/** (or `npx serve .` locally).
+
+**Cache:** After a deploy, hard-refresh (**Ctrl+Shift+R** / **Cmd+Shift+R**) or use an incognito window. CSS/JS are cached for several hours—in Cloudflare: **Caching** → **Configuration** → **Purge Everything** (or purge the URLs you changed).
+
+**Confirm deploy:** Cloudflare **Workers & Pages** → your project → **Deployments** → latest build should match your Git commit SHA and show **Success**. Open **https://vyrenlo.com/case-studies/vyrenlo-ai-leadflow/** and **https://vyrenlo.com/case-studies/personal-fund-subsystem/** to verify case-study layouts.
 
 ## Contact form (Formspree)
 
