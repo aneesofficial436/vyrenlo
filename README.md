@@ -38,7 +38,7 @@ node scripts/generate-sitemap.mjs
 git add -A && git commit && git push
 ```
 
-**Pre-push checklist:** `case-studies/**/index.html`, `assets/case-studies/**`, `styles-inner.css`, `main.js`, `index.html`, and `sitemap.xml` should be in the commit (not only files under `scripts/`).
+**Pre-push checklist:** `case-studies/**/index.html`, `assets/case-studies/**`, **`styles.css`** (visual case-study layout), `styles-inner.css`, `main.js`, `index.html`, and `sitemap.xml` should be in the commit (not only files under `scripts/`).
 
 **Live vs GitHub:** Opening files on github.com shows markdown/plain HTML, not the styled site. Preview at **https://vyrenlo.com/** (or `npx serve .` locally).
 

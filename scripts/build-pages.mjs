@@ -18,6 +18,17 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
 
+/** Bust CDN cache when styles change (Cloudflare may cache CSS for hours). */
+function styleCacheQuery() {
+  const ts = Math.max(
+    fs.statSync(path.join(root, "styles.css")).mtimeMs,
+    fs.statSync(path.join(root, "styles-inner.css")).mtimeMs
+  );
+  return `?v=${ts}`;
+}
+
+const styleQuery = styleCacheQuery();
+
 function esc(s) {
   return String(s)
     .replace(/&/g, "&amp;")
@@ -161,8 +172,8 @@ function shell({ depth, title, description, active, main }) {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="${prefix}/styles.css" />
-  <link rel="stylesheet" href="${prefix}/styles-inner.css" />
+  <link rel="stylesheet" href="${prefix}/styles.css${styleQuery}" />
+  <link rel="stylesheet" href="${prefix}/styles-inner.css${styleQuery}" />
   <link rel="icon" href="${prefix}/favicon.svg" type="image/svg+xml" />
 </head>
 <body>
