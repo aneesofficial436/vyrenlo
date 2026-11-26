@@ -2,6 +2,8 @@
 
 Static website for **vyrenlo.com** (AI solutions & software house). Ready for Cloudflare Pages.
 
+**Vyrenlo AI LeadFlow** (lead management demo app) lives in a separate repository: `vyrenlo-leadflow` on this machine at `../vyrenlo-leadflow`.
+
 ## Local preview
 
 **Recommended:** run a small web server (folder URLs like `/service/generative-ai/` need this):

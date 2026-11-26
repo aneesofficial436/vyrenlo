@@ -336,7 +336,277 @@
   background: rgba(255, 255, 255, 0.04);
 }
 
+/* Extended service pages */
+.page-hero-service {
+  padding-bottom: 3rem;
+}
+
+.page-hero-service .page-hero-inner,
+.page-hero-service .service-hero-copy {
+  max-width: none;
+}
+
+.service-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.service-definition {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0 0 1.5rem;
+  max-width: 540px;
+  line-height: 1.65;
+}
+
+.service-hero-media {
+  margin: 0;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.service-hero-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.service-types-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.service-type-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.5rem;
+}
+
+.service-type-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+
+.service-type-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.benefits-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.service-delivery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.service-lifecycle-figure {
+  margin: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.service-lifecycle-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cycle-grid-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.section-lifecycle-pitch {
+  overflow: hidden;
+}
+
+.lifecycle-outcomes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0 0 2rem;
+}
+
+.lifecycle-outcome-pill {
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-ring);
+}
+
+.lifecycle-pitch-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.lifecycle-pitch-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.15rem 1.15rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.lifecycle-pitch-card:hover {
+  border-color: var(--accent-ring);
+  transform: translateY(-3px);
+}
+
+.lifecycle-pitch-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+}
+
+.lifecycle-pitch-num {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.lifecycle-pitch-card .cycle-step {
+  margin-bottom: 0;
+}
+
+.lifecycle-pitch-hook {
+  margin: 0 0 0.5rem;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.lifecycle-pitch-body {
+  margin: 0 0 1rem;
+  flex: 1;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.lifecycle-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--border);
+  padding-top: 0.85rem;
+}
+
+.lifecycle-tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  min-width: 3.25rem;
+  text-align: center;
+}
+
+.lifecycle-tool img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: block;
+}
+
+.lifecycle-tool span {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1.2;
+  max-width: 4.5rem;
+}
+
+.activities-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.activity-card-num {
+  position: relative;
+  padding-top: 2.5rem;
+}
+
+.activity-num {
+  position: absolute;
+  top: 1rem;
+  left: 1.35rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+.service-tech-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.service-quality-panel {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.65rem;
+}
+
+.service-quality-panel h3 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+}
+
+.section-dark .section-desc {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+@media (max-width: 1100px) {
+  .lifecycle-pitch-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 900px) {
+  .service-hero-grid,
+  .service-delivery-grid,
+  .service-tech-grid,
+  .service-types-grid,
+  .benefits-grid-3,
+  .cycle-grid-5,
+  .activities-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .lifecycle-pitch-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-definition {
+    max-width: none;
+  }
+
   .inner-split,
   .cycle-grid,
   .activities-grid,

@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 import { services, agents, industries, caseStudies, hubPages } from "./page-content.mjs";
 import { legalPages } from "./legal-content.mjs";
 import { extendedCaseStudies } from "./case-study-extended.mjs";
+import { extendedServices } from "./service-extended.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
@@ -235,6 +236,189 @@ function serviceMain(s) {
           <p class="section-desc"><a href="mailto:contact@vyrenlo.com">contact@vyrenlo.com</a> · <a href="mailto:info@vyrenlo.com">info@vyrenlo.com</a></p>
         </div>
         <a class="btn btn-primary btn-lg calendly-cta" href="${pageHref("../..", "contact")}">Book a 30-min call</a>
+      </div>
+    </section>`;
+}
+
+function extendedServiceMain(s, ext) {
+  const prefix = "../..";
+  const builds = ext.builds
+    .map(
+      (b) =>
+        `<article class="service-type-card"><h3>${esc(b.title)}</h3><p>${esc(b.body)}</p></article>`
+    )
+    .join("\n          ");
+  const benefits = ext.benefits
+    .map(
+      (b) =>
+        `<article class="benefit-card"><h3>${esc(b.title)}</h3><p>${esc(b.body)}</p></article>`
+    )
+    .join("\n          ");
+  const lifecycleOutcomes = (ext.lifecycleOutcomes || [])
+    .map((o) => `<span class="lifecycle-outcome-pill">${esc(o)}</span>`)
+    .join("\n          ");
+  const lifecycle = ext.lifecycle
+    .map((c, i) => {
+      const tools = (c.tools || [])
+        .map(
+          (t) =>
+            `<li class="lifecycle-tool"><img src="${prefix}/assets/services/tool-icons/${esc(t.slug)}.svg" width="36" height="36" alt="" /><span>${esc(t.label)}</span></li>`
+        )
+        .join("\n              ");
+      const hook = c.hook ? `<h3 class="lifecycle-pitch-hook">${esc(c.hook)}</h3>` : "";
+      return `<article class="lifecycle-pitch-card">
+            <div class="lifecycle-pitch-head">
+              <span class="lifecycle-pitch-num">${String(i + 1).padStart(2, "0")}</span>
+              <span class="cycle-step">${esc(c.step)}</span>
+            </div>
+            ${hook}
+            <p class="lifecycle-pitch-body">${esc(c.body)}</p>
+            <ul class="lifecycle-tools" aria-label="Tools for ${esc(c.step)}">${tools}</ul>
+          </article>`;
+    })
+    .join("\n          ");
+  const activities = ext.activities
+    .map(
+      (a, i) =>
+        `<article class="activity-card activity-card-num"><span class="activity-num">${String(i + 1).padStart(2, "0")}</span><h3>${esc(a.title)}</h3><p>${esc(a.body)}</p></article>`
+    )
+    .join("\n          ");
+  const deliveryList = ext.deliveryPoints
+    .map((p) => `<li>${esc(p)}</li>`)
+    .join("\n            ");
+  const techRows = ext.techTable
+    .map(([layer, choice]) => `<tr><th scope="row">${esc(layer)}</th><td>${esc(choice)}</td></tr>`)
+    .join("\n            ");
+  const qualityList = ext.qualityItems.map((q) => `<li>${esc(q)}</li>`).join("\n            ");
+  const relatedCards = ext.relatedCaseSlugs
+    .map((slug) => {
+      const c = caseStudies.find((x) => x.slug === slug);
+      if (!c) return "";
+      return `<article class="case-card"><span class="case-tag">${esc(c.tag)}</span><h3><a href="${pageHref(prefix, "case-studies", c.slug)}">${esc(c.title)}</a></h3><p>${esc(c.summary)}</p><a class="text-link" href="${pageHref(prefix, "case-studies", c.slug)}">Read case study</a></article>`;
+    })
+    .filter(Boolean)
+    .join("\n          ");
+
+  const pilotBlock = ext.pilotLink
+    ? `<p class="center-link" style="margin-top:1.25rem"><a href="${pageHref(prefix)}#pilot">Start with a one-week pilot</a></p>`
+    : "";
+
+  return `
+    <section class="page-hero page-hero-service">
+      <div class="container service-hero-grid">
+        <div class="service-hero-copy">
+          <p class="eyebrow">${esc(s.title)}</p>
+          <h1>${esc(ext.heroTitle)}</h1>
+          <p class="page-lead">${esc(ext.heroLead)}</p>
+          <p class="service-definition">${esc(ext.heroDefinition)}</p>
+          <div class="page-hero-actions">
+            <a class="btn btn-primary btn-lg calendly-cta" href="${pageHref(prefix, "contact")}">Book a scoping call</a>
+            <a class="btn btn-ghost btn-lg" href="${pageHref(prefix, "case-studies")}">See our work</a>
+          </div>
+        </div>
+        <figure class="service-hero-media">
+          <img src="${prefix}/${ext.heroImage}" width="720" height="480" alt="${esc(ext.heroImageAlt)}" loading="eager" />
+        </figure>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-head centered">
+          <h2>${esc(ext.buildsTitle)}</h2>
+          <p class="section-desc">${esc(ext.buildsLead)}</p>
+        </div>
+        <div class="service-types-grid">
+          ${builds}
+        </div>
+      </div>
+    </section>
+    <section class="section section-muted">
+      <div class="container">
+        <div class="section-head">
+          <h2>${esc(ext.benefitsTitle)}</h2>
+          <p class="section-desc">${esc(ext.benefitsLead)}</p>
+        </div>
+        <div class="benefits-grid benefits-grid-3">
+          ${benefits}
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container service-delivery-grid">
+        <div>
+          <p class="eyebrow">Delivery</p>
+          <h2>${esc(ext.deliveryTitle)}</h2>
+          <p class="section-desc">${esc(ext.deliveryLead)}</p>
+          <ul class="check-list">${deliveryList}</ul>
+          ${pilotBlock}
+        </div>
+        <figure class="service-lifecycle-figure">
+          <img src="${prefix}/${ext.lifecycleImage}" width="800" height="320" alt="${esc(ext.lifecycleImageAlt)}" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+    <section class="section section-muted section-lifecycle-pitch">
+      <div class="container">
+        <div class="section-head centered">
+          <h2>${esc(ext.lifecycleTitle)}</h2>
+          ${ext.lifecyclePitchLead ? `<p class="section-desc">${esc(ext.lifecyclePitchLead)}</p>` : ""}
+        </div>
+        ${lifecycleOutcomes ? `<div class="lifecycle-outcomes">${lifecycleOutcomes}</div>` : ""}
+        <div class="lifecycle-pitch-grid">
+          ${lifecycle}
+        </div>
+      </div>
+    </section>
+    <section class="section cta-band">
+      <div class="container cta-band-inner">
+        <div>
+          <h2>${esc(ext.ctaTitle)}</h2>
+          <p class="section-desc">${esc(ext.ctaLead)}</p>
+        </div>
+        <a class="btn btn-primary btn-lg calendly-cta" href="${pageHref(prefix, "contact")}">Talk to an engineer</a>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2>${esc(ext.activitiesTitle)}</h2>
+        <div class="activities-grid activities-grid-3">
+          ${activities}
+        </div>
+      </div>
+    </section>
+    <section class="section section-dark">
+      <div class="container service-tech-grid">
+        <div>
+          <h2>${esc(ext.techTitle)}</h2>
+          <p class="section-desc">${esc(ext.techLead)}</p>
+          <div class="tech-table-wrap">
+            <table class="tech-table">
+              <thead><tr><th scope="col">Layer</th><th scope="col">Typical choices</th></tr></thead>
+              <tbody>${techRows}</tbody>
+            </table>
+          </div>
+        </div>
+        <div class="service-quality-panel">
+          <h3>${esc(ext.qualityTitle)}</h3>
+          <ul class="check-list">${qualityList}</ul>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h2>${esc(ext.relatedTitle)}</h2>
+        <div class="cases-grid compact">
+          ${relatedCards}
+        </div>
+      </div>
+    </section>
+    <section class="section contact-strip">
+      <div class="container contact-strip-inner">
+        <div>
+          <h2>Ready to scope your web application?</h2>
+          <p class="section-desc"><a href="mailto:contact@vyrenlo.com">contact@vyrenlo.com</a> · Response within one business day</p>
+        </div>
+        <a class="btn btn-primary btn-lg calendly-cta" href="${pageHref(prefix, "contact")}">Book a 30-min call</a>
       </div>
     </section>`;
 }
@@ -490,12 +674,13 @@ function writePage(relDir, filename, html) {
 }
 
 for (const s of services) {
+  const ext = extendedServices[s.slug];
   const html = shell({
     depth: 2,
     title: s.metaTitle,
-    description: s.heroLead,
+    description: ext?.metaDescription ?? s.heroLead,
     active: `service-${s.slug}`,
-    main: serviceMain(s),
+    main: ext ? extendedServiceMain(s, ext) : serviceMain(s),
   });
   writePage(`service/${s.slug}`, "index.html", html);
 }

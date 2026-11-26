@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" role="img" aria-label="Web application layers: browser, API, and data">
+  <rect width="720" height="480" fill="#F5F3EF"/>
+  <rect x="40" y="48" width="640" height="384" rx="18" fill="#FFFFFF" stroke="#E6E0D6"/>
+  <rect x="64" y="72" width="592" height="36" rx="8" fill="#F7F5F1"/>
+  <circle cx="88" cy="90" r="6" fill="#F87171"/>
+  <circle cx="108" cy="90" r="6" fill="#FBBF24"/>
+  <circle cx="128" cy="90" r="6" fill="#34D399"/>
+  <rect x="160" y="82" width="200" height="16" rx="6" fill="#E6E0D6"/>
+  <rect x="64" y="128" width="160" height="280" rx="10" fill="#F7F5F1"/>
+  <rect x="84" y="152" width="120" height="10" rx="4" fill="#D4CEC4"/>
+  <rect x="84" y="176" width="120" height="36" rx="8" fill="#FFFFFF" stroke="#0BBDB3" stroke-opacity="0.5"/>
+  <rect x="84" y="224" width="120" height="36" rx="8" fill="#FFFFFF" stroke="#E6E0D6"/>
+  <rect x="84" y="272" width="120" height="36" rx="8" fill="#FFFFFF" stroke="#E6E0D6"/>
+  <rect x="248" y="128" width="408" height="168" rx="10" fill="#F7F5F1"/>
+  <rect x="272" y="152" width="180" height="12" rx="4" fill="#102A50"/>
+  <rect x="272" y="176" width="320" height="8" rx="4" fill="#5C6A7E"/>
+  <rect x="272" y="196" width="280" height="8" rx="4" fill="#D4CEC4"/>
+  <rect x="272" y="228" width="120" height="44" rx="10" fill="#102A50"/>
+  <rect x="404" y="228" width="120" height="44" rx="10" fill="#FFFFFF" stroke="#E6E0D6"/>
+  <rect x="248" y="312" width="196" height="96" rx="10" fill="#FFFFFF" stroke="#E6E0D6"/>
+  <text x="268" y="342" fill="#0C6E68" font-family="system-ui,sans-serif" font-size="11" font-weight="600">API layer</text>
+  <rect x="268" y="352" width="140" height="6" rx="3" fill="#D4CEC4"/>
+  <rect x="268" y="366" width="100" height="6" rx="3" fill="#D4CEC4"/>
+  <rect x="460" y="312" width="196" height="96" rx="10" fill="#FFFFFF" stroke="#E6E0D6"/>
+  <text x="480" y="342" fill="#0C6E68" font-family="system-ui,sans-serif" font-size="11" font-weight="600">Data and auth</text>
+  <rect x="480" y="352" width="140" height="6" rx="3" fill="#D4CEC4"/>
+  <rect x="480" y="366" width="120" height="6" rx="3" fill="#D4CEC4"/>
+  <path d="M444 360 H460 M444 380 H460" stroke="#0BBDB3" stroke-width="2" stroke-linecap="round"/>
+  <path d="M656 360 H640 M656 380 H640" stroke="#0BBDB3" stroke-width="2" stroke-linecap="round"/>
+</svg>

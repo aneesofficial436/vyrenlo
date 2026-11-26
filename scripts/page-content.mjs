@@ -128,10 +128,10 @@ export const services = [
   {
     slug: "web-applications",
     title: "Web Applications",
-    metaTitle: "Custom Web Application Development | Vyrenlo",
-    heroTitle: "Ship web apps users love—and ops teams can run",
+    metaTitle: "Web Application Development Services | Vyrenlo",
+    heroTitle: "Deliver fast, scalable web applications",
     heroLead:
-      "Modern frontends, resilient APIs, and cloud-native hosting for customer portals, internal tools, and SaaS products.",
+      "Custom web apps with responsive UI, secure APIs, and cloud deployment—scope in writing and weekly previews.",
     introEyebrow: "Digital products",
     introTitle: "Web applications built for scale",
     introBody:
