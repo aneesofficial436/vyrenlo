@@ -2,12 +2,12 @@
 
 export const extendedCaseStudies = {
   "personal-fund-subsystem": {
-    metaTitle: "Personal Fund Subsystem: a web system for institutional patient funds",
+    metaTitle: "Personal Fund Subsystem | Vyrenlo Case Study",
     metaDescription:
-      "A .NET 8 and Blazor Server application for searching patient accounts, posting personal-fund transactions, running operational reports, and administering institutions, users, and accounting reference data.",
-    heroHeadline: "Personal funds, posted and reviewed in one permissioned web system",
+      "Blazor and .NET 8 web system for institutional patient funds—lookup, transactions, SSRS reports, and permissioned admin.",
+    heroHeadline: "Personal Fund Subsystem",
     heroSubhead:
-      "PFS gives institutional staff a browser workspace for patient account lookup, cash posting, allowances, bulk interest, inquiry, and the reports used to balance those funds.",
+      "Browser workspace for patient fund lookup, cash posting, inquiry, and operational reports.",
     heroFacts: [
       ".NET 8, Blazor Server, ASP.NET Core API",
       "SQL Server with the existing stored-procedure data model",
@@ -159,5 +159,86 @@ export const extendedCaseStudies = {
       ["Operations", "Health checks, IIS hosting, integrated security outside development"],
       ["Tests", "Playwright, run in GitHub Actions"],
     ],
+  },
+  "enterprise-playwright-bdd": {
+    metaTitle: "Enterprise Playwright-BDD Regression | Vyrenlo Case Study",
+    metaDescription:
+      "Large-scale playwright-bdd automation—hundreds of Gherkin scenarios, split repos, Azure DevOps traceability, merge-smart CI, and agent-ready test ops.",
+    heroHeadline: "Enterprise Playwright-BDD Regression",
+    heroSubhead:
+      "End-to-end regression for complex enterprise web apps—with traceability, framework reuse, and CI that knows new failures from baseline noise.",
+    heroFacts: [
+      "Hundreds of Gherkin scenarios mapped to managed test cases",
+      "Parent repo for features; git submodule for the Playwright framework",
+      "playwright-bdd generation, Allure, and JUnit XML for triage",
+      "Skills, indexes, and MCP-ready ops for humans and coding agents",
+    ],
+    tags: [
+      "Playwright",
+      "playwright-bdd",
+      "TypeScript",
+      "Azure DevOps",
+      "Test automation",
+      "Agentic QA",
+    ],
+    designLessons: [
+      "Separate what to test from how to drive the UI—QA velocity without everyone touching locators",
+      "Treat generated Playwright specs as build artifacts",
+      "Version the framework with the product—explicit CI branch checkout over a stale submodule pin",
+      "Invest in one step text and one logical element name; indexes make that searchable",
+      "Classify failures before coding—locator, step, config, or product defect",
+      "Embed agent skills in the repo so onboarding is playbook-driven",
+      "Tags are execution contracts—they control parallel runs and reporting dimensions",
+    ],
+    techTable: [
+      ["Runtime", "Node.js 22.15+"],
+      ["Language", "TypeScript"],
+      ["Automation", "Playwright, playwright-bdd"],
+      ["Reporting", "Allure, JUnit XML, HTML Playwright report"],
+      ["Data", "CSV / Excel libraries for import scenarios"],
+      ["Validation", "SQL Server client helpers (read-only tooling)"],
+      ["CI", "Azure Pipelines—daily, sharded, and PR merge-test templates"],
+      ["Ops", "Agent skills, generated step/element indexes, optional MCP"],
+    ],
+    sections: [],
+  },
+  "vyrenlo-ai-leadflow": {
+    metaTitle: "Vyrenlo AI LeadFlow | Vyrenlo Case Study",
+    metaDescription:
+      "Multi-tenant lead automation—FastAPI, Next.js CRM, OpenAI qualification, n8n workflows, and Docker-backed demo for agencies and sales teams.",
+    heroHeadline: "Vyrenlo AI LeadFlow",
+    heroSubhead:
+      "Capture, qualify, notify, and follow up across channels—with tenant isolation, approval gates, and a CRM built for demos and client onboarding.",
+    heroFacts: [
+      "Nine delivery phases from architecture through production demo scripts",
+      "FastAPI domain API; n8n for schedules and social ingest only",
+      "OpenAI structured JSON qualification with Pydantic contracts",
+      "Ten importable n8n workflows with HMAC webhooks and service tokens",
+    ],
+    tags: [
+      "FastAPI",
+      "Next.js",
+      "OpenAI",
+      "n8n",
+      "PostgreSQL",
+      "Multi-tenant SaaS",
+    ],
+    designLessons: [
+      "Keep qualification, dedup, consent, and approvals in the API—n8n schedules and connects systems",
+      "Ship multi-tenant schema and RBAC early; retrofitting isolation is expensive",
+      "Pydantic-validated LLM JSON beats brittle parsing and simplifies tests",
+      "require_approval_for_outbound makes automation palatable for brand-sensitive clients",
+      "Vertical JSON templates position one codebase for real estate, B2B, and agency use cases",
+      "Mailpit, seed scripts, and a scripted demo make the portfolio story repeatable",
+    ],
+    techTable: [
+      ["API", "FastAPI 0.115, SQLAlchemy 2, Alembic, JWT + Argon2"],
+      ["Frontend", "Next.js 15, React 19, Tailwind, Radix, TanStack Table"],
+      ["Data", "PostgreSQL (source of truth), Redis (rate limits)"],
+      ["AI", "OpenAI structured qualification and optional message generation"],
+      ["Automation", "n8n — 10 workflow exports, Mailpit in dev"],
+      ["Deploy", "Docker Compose dev/prod, GitHub Actions CI"],
+    ],
+    sections: [],
   },
 };

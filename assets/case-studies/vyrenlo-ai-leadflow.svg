@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Vyrenlo AI LeadFlow CRM preview">
+  <defs>
+    <linearGradient id="lf-accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#102A50"/>
+      <stop offset="100%" stop-color="#0BBDB3"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="#F5F3EF"/>
+  <rect x="24" y="24" width="752" height="40" rx="8" fill="#FFFFFF" stroke="#E6E0D6"/>
+  <rect x="40" y="36" width="24" height="16" rx="4" fill="url(#lf-accent)" opacity="0.9"/>
+  <text x="72" y="50" fill="#102A50" font-family="system-ui,sans-serif" font-size="13" font-weight="600">LeadFlow</text>
+  <rect x="580" y="34" width="72" height="20" rx="6" fill="#0C6E68" opacity="0.25"/>
+  <text x="616" y="48" text-anchor="middle" fill="#0C6E68" font-size="10" font-family="system-ui,sans-serif">12 hot</text>
+  <rect x="24" y="80" width="160" height="396" rx="12" fill="#FFFFFF" stroke="#E6E0D6"/>
+  <rect x="44" y="108" width="120" height="10" rx="3" fill="#0BBDB3" opacity="0.85"/>
+  <rect x="44" y="134" width="90" height="8" rx="3" fill="#D4CEC4"/>
+  <rect x="44" y="156" width="100" height="8" rx="3" fill="#D4CEC4"/>
+  <rect x="44" y="178" width="85" height="8" rx="3" fill="#D4CEC4"/>
+  <rect x="200" y="80" width="576" height="120" rx="12" fill="#FFFFFF" stroke="#E6E0D6"/>
+  <text x="220" y="118" fill="#5C6A7E" font-size="12" font-family="system-ui,sans-serif">Pipeline overview</text>
+  <rect x="220" y="132" width="120" height="48" rx="8" fill="#F7F5F1"/>
+  <text x="280" y="162" text-anchor="middle" fill="#102A50" font-size="18" font-weight="600" font-family="system-ui,sans-serif">247</text>
+  <rect x="360" y="132" width="120" height="48" rx="8" fill="#FDE8E8"/>
+  <text x="420" y="155" text-anchor="middle" fill="#B42318" font-size="10" font-family="system-ui,sans-serif">HOT</text>
+  <text x="420" y="172" text-anchor="middle" fill="#B42318" font-size="16" font-weight="600" font-family="system-ui,sans-serif">18</text>
+  <rect x="500" y="132" width="256" height="48" rx="8" fill="url(#lf-accent)" opacity="0.15"/>
+  <text x="520" y="162" fill="#0C6E68" font-size="11" font-family="system-ui,sans-serif">AI qualified · n8n follow-ups active</text>
+  <rect x="200" y="216" width="576" height="260" rx="12" fill="#FFFFFF" stroke="#E6E0D6"/>
+  <rect x="220" y="240" width="536" height="32" rx="6" fill="#F7F5F1"/>
+  <circle cx="238" cy="256" r="6" fill="#B42318"/>
+  <text x="252" y="260" fill="#102A50" font-size="12" font-family="system-ui,sans-serif">Jordan M.  viewing timeline this week</text>
+  <rect x="640" y="248" width="56" height="16" rx="4" fill="#0C6E68" opacity="0.3"/>
+  <rect x="220" y="284" width="536" height="32" rx="6" fill="#F7F5F1"/>
+  <circle cx="238" cy="300" r="6" fill="#F79009"/>
+  <text x="252" y="304" fill="#102A50" font-size="12" font-family="system-ui,sans-serif">Acme Logistics  budget confirmed</text>
+  <rect x="220" y="328" width="536" height="32" rx="6" fill="#F7F5F1"/>
+  <circle cx="238" cy="344" r="6" fill="#5C6A7E"/>
+  <text x="252" y="348" fill="#102A50" font-size="12" font-family="system-ui,sans-serif">Inbound form  awaiting qualification</text>
+  <rect x="220" y="380" width="200" height="36" rx="8" fill="#102A50"/>
+  <text x="320" y="403" text-anchor="middle" fill="#fff" font-size="12" font-family="system-ui,sans-serif">Approve outbound</text>
+</svg>

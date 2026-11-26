@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Follow-up sequences and approvals">
+  <rect width="1200" height="675" fill="#F5F3EF"/>
+  <text x="120" y="120" fill="#102A50" font-size="22" font-weight="600" font-family="system-ui,sans-serif">Sequences that pause when humans reply</text>
+  <rect x="120" y="160" width="180" height="64" rx="10" fill="#fff" stroke="#E6E0D6"/>
+  <text x="210" y="198" text-anchor="middle" fill="#102A50" font-size="12" font-family="system-ui,sans-serif">+24h</text>
+  <text x="320" y="198" fill="#5C6A7E" font-size="20" font-family="system-ui,sans-serif">&#8594;</text>
+  <rect x="360" y="160" width="180" height="64" rx="10" fill="#fff" stroke="#E6E0D6"/>
+  <text x="450" y="198" text-anchor="middle" fill="#102A50" font-size="12" font-family="system-ui,sans-serif">+72h</text>
+  <text x="560" y="198" fill="#5C6A7E" font-size="20" font-family="system-ui,sans-serif">&#8594;</text>
+  <rect x="600" y="160" width="180" height="64" rx="10" fill="#fff" stroke="#E6E0D6"/>
+  <text x="690" y="198" text-anchor="middle" fill="#102A50" font-size="12" font-family="system-ui,sans-serif">+168h</text>
+  <text x="800" y="198" fill="#5C6A7E" font-size="20" font-family="system-ui,sans-serif">&#8594;</text>
+  <rect x="840" y="160" width="240" height="64" rx="10" fill="#0BBDB3" opacity="0.2" stroke="#0BBDB3"/>
+  <text x="960" y="198" text-anchor="middle" fill="#0C6E68" font-size="12" font-weight="600" font-family="system-ui,sans-serif">Hourly n8n scheduler</text>
+  <rect x="120" y="280" width="520" height="300" rx="12" fill="#fff" stroke="#E6E0D6"/>
+  <text x="150" y="325" fill="#102A50" font-size="15" font-weight="600" font-family="system-ui,sans-serif">Outbound path</text>
+  <rect x="150" y="350" width="460" height="44" rx="8" fill="#F7F5F1"/>
+  <text x="170" y="378" fill="#102A50" font-size="13" font-family="system-ui,sans-serif">AI or template body ’ communication record</text>
+  <rect x="150" y="410" width="460" height="44" rx="8" fill="#FEF0C7"/>
+  <text x="170" y="438" fill="#B54708" font-size="13" font-family="system-ui,sans-serif">Optional: pending approval in CRM</text>
+  <rect x="150" y="470" width="460" height="44" rx="8" fill="#F7F5F1"/>
+  <text x="170" y="498" fill="#102A50" font-size="13" font-family="system-ui,sans-serif">Approve ’ SMTP send ’ status contacted</text>
+  <rect x="680" y="280" width="400" height="300" rx="12" fill="#102A50"/>
+  <text x="710" y="325" fill="#fff" font-size="15" font-weight="600" font-family="system-ui,sans-serif">Inbound reply</text>
+  <text x="710" y="370" fill="#B8D4D2" font-size="13" font-family="system-ui,sans-serif">Internal webhook pauses follow-ups</text>
+  <text x="710" y="405" fill="#B8D4D2" font-size="13" font-family="system-ui,sans-serif">Lead ’ engaged</text>
+  <text x="710" y="455" fill="#0BBDB3" font-size="13" font-family="system-ui,sans-serif">Humans stay in the loop</text>
+</svg>

@@ -4,7 +4,16 @@ import { fileURLToPath } from "url";
 import { services, agents, industries, caseStudies, hubPages } from "./page-content.mjs";
 import { legalPages } from "./legal-content.mjs";
 import { extendedCaseStudies } from "./case-study-extended.mjs";
+import { personalFundVisualMain } from "./personal-fund-visual.mjs";
+import { playwrightBddVisualMain } from "./playwright-bdd-visual.mjs";
+import { leadflowVisualMain } from "./leadflow-visual.mjs";
 import { extendedServices } from "./service-extended.mjs";
+import {
+  emailContactMetaListHtml,
+  emailInlineHtml,
+  VYRENLO_CONTACT_EMAIL,
+  VYRENLO_INFO_EMAIL,
+} from "./site-emails.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
@@ -130,7 +139,7 @@ function footer(prefix) {
         <h4>Legal</h4>
         <ul>
           <li><a href="${pageHref(prefix, "privacy")}">Privacy Policy</a></li>
-          <li><a href="${pageHref(prefix, "terms")}">Terms of Service</a></li>
+          <li><a href="${pageHref(prefix, "terms")}">Terms and Conditions</a></li>
         </ul>
       </div>
     </div>
@@ -233,7 +242,7 @@ function serviceMain(s) {
       <div class="container contact-strip-inner">
         <div>
           <h2>Get Vyrenlo updates and book meetings to boost your business.</h2>
-          <p class="section-desc"><a href="mailto:contact@vyrenlo.com">contact@vyrenlo.com</a> · <a href="mailto:info@vyrenlo.com">info@vyrenlo.com</a></p>
+          <p class="section-desc">${emailInlineHtml()}</p>
         </div>
         <a class="btn btn-primary btn-lg calendly-cta" href="${pageHref("../..", "contact")}">Book a 30-min call</a>
       </div>
@@ -416,7 +425,7 @@ function extendedServiceMain(s, ext) {
       <div class="container contact-strip-inner">
         <div>
           <h2>Ready to scope your web application?</h2>
-          <p class="section-desc"><a href="mailto:contact@vyrenlo.com">contact@vyrenlo.com</a> · Response within one business day</p>
+          <p class="section-desc">${emailInlineHtml()} · Response within one business day</p>
         </div>
         <a class="btn btn-primary btn-lg calendly-cta" href="${pageHref(prefix, "contact")}">Book a 30-min call</a>
       </div>
@@ -500,6 +509,15 @@ function industryMain(i) {
 
 function caseStudyMain(c) {
   const ext = extendedCaseStudies[c.slug];
+  if (c.slug === "personal-fund-subsystem" && ext) {
+    return personalFundVisualMain(c, ext, { esc, pageHref });
+  }
+  if (c.slug === "enterprise-playwright-bdd" && ext) {
+    return playwrightBddVisualMain(c, ext, { esc, pageHref });
+  }
+  if (c.slug === "vyrenlo-ai-leadflow" && ext) {
+    return leadflowVisualMain(c, ext, { esc, pageHref });
+  }
   if (ext) return extendedCaseStudyMain(c, ext);
 
   return `
@@ -603,24 +621,72 @@ function caseStudiesHub() {
     </section>`;
 }
 
+function legalParagraphHtml(text) {
+  const privacyPlaceholder = "__VYRENLO_PRIVACY_LINK__";
+  let raw = String(text).replace(
+    "[[PRIVACY_POLICY_LINK]]",
+    privacyPlaceholder
+  );
+  let html = esc(raw);
+  html = html.replace(
+    privacyPlaceholder,
+    `<a href="${pageHref("..", "privacy")}">Privacy Policy</a>`
+  );
+  for (const email of [VYRENLO_CONTACT_EMAIL, VYRENLO_INFO_EMAIL]) {
+    const safe = esc(email);
+    html = html.replaceAll(
+      safe,
+      `<a href="mailto:${email}">${safe}</a>`
+    );
+  }
+  return `<p>${html}</p>`;
+}
+
+function legalList(section) {
+  if (section.labeledList?.length) {
+    return `<ul class="legal-list">${section.labeledList
+      .map(
+        (item) =>
+          `<li><strong>${esc(item.label)}</strong> ${esc(item.body)}</li>`
+      )
+      .join("")}</ul>`;
+  }
+  if (section.listItems?.length) {
+    return `<ul class="legal-list">${section.listItems
+      .map((item) => `<li>${esc(item)}</li>`)
+      .join("")}</ul>`;
+  }
+  return "";
+}
+
 function legalMain(page, activeSlug) {
-  const body = page.sections
-    .map(
-      (s) =>
-        `<h2>${esc(s.heading)}</h2>\n${s.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("\n")}`
-    )
+  const intro = (page.intro ?? [])
+    .map((p) => legalParagraphHtml(p).replace("<p>", '<p class="legal-intro">'))
     .join("\n");
+  const body = page.sections
+    .map((s) => {
+      const list = legalList(s);
+      return `<h2>${esc(s.heading)}</h2>\n${s.paragraphs.map((p) => legalParagraphHtml(p)).join("\n")}${list ? `\n${list}` : ""}`;
+    })
+    .join("\n");
+  const lead = page.leadLine
+    ? esc(page.leadLine)
+    : `Last updated: ${esc(page.updated)}`;
+  const related =
+    page.relatedLabel ??
+    (activeSlug === "privacy" ? "Terms and Conditions" : "Privacy Policy");
   return `
     <section class="page-hero page-hero-sm">
       <div class="container page-hero-inner">
         <h1>${esc(page.title)}</h1>
-        <p class="page-lead">Last updated: ${esc(page.updated)}</p>
+        <p class="page-lead">${lead}</p>
       </div>
     </section>
     <section class="section">
       <div class="container prose-block legal-prose">
+        ${intro}
         ${body}
-        <p class="legal-note"><a href="${pageHref("..", activeSlug === "privacy" ? "terms" : "privacy")}">${activeSlug === "privacy" ? "Terms of Service" : "Privacy Policy"}</a></p>
+        <p class="legal-note"><a href="${pageHref("..", activeSlug === "privacy" ? "terms" : "privacy")}">${esc(related)}</a></p>
       </div>
     </section>`;
 }
@@ -637,8 +703,7 @@ function contactPage() {
       <div class="container contact-grid">
         <div class="contact-copy">
           <ul class="contact-meta">
-            <li><a href="mailto:contact@vyrenlo.com">contact@vyrenlo.com</a></li>
-            <li><a href="mailto:info@vyrenlo.com">info@vyrenlo.com</a></li>
+            ${emailContactMetaListHtml()}
             <li>vyrenlo.com</li>
           </ul>
           <p style="margin-top:1.25rem">

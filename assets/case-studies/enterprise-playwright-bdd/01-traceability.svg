@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Scenario traceability to work items">
+  <defs>
+    <marker id="trace-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#0BBDB3"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="675" fill="#F5F3EF"/>
+  <rect x="80" y="80" width="1040" height="515" rx="16" fill="#fff" stroke="#E6E0D6"/>
+  <text x="120" y="140" fill="#102A50" font-family="system-ui,sans-serif" font-size="22" font-weight="600">One scenario maps to one test case</text>
+  <rect x="120" y="180" width="280" height="120" rx="10" fill="#1a2332"/>
+  <text x="140" y="220" fill="#7ee8a8" font-family="ui-monospace,monospace" font-size="14">TestCase_&lt;id&gt;.feature</text>
+  <text x="140" y="250" fill="#a8b4c4" font-family="ui-monospace,monospace" font-size="12">Feature: TestCase_&lt;id&gt;</text>
+  <text x="140" y="278" fill="#a8b4c4" font-family="ui-monospace,monospace" font-size="12">  Scenario: main flow</text>
+  <path d="M 420 240 L 480 240" stroke="#0BBDB3" stroke-width="3" fill="none" marker-end="url(#trace-arrow)"/>
+  <rect x="500" y="180" width="280" height="120" rx="10" fill="#EFECE6" stroke="#E6E0D6"/>
+  <text x="520" y="230" fill="#102A50" font-size="14" font-weight="600" font-family="system-ui,sans-serif">Work item / test plan</text>
+  <text x="520" y="258" fill="#5C6A7E" font-size="13" font-family="system-ui,sans-serif">Suite hierarchy in folders</text>
+  <rect x="120" y="340" width="960" height="200" rx="10" fill="#F7F5F1"/>
+  <text x="140" y="380" fill="#0C6E68" font-size="13" font-weight="600" font-family="system-ui,sans-serif">Why it matters</text>
+  <text x="140" y="415" fill="#5C6A7E" font-size="15" font-family="system-ui,sans-serif">QA authors scenarios without touching locators. Automation maps every file to</text>
+  <text x="140" y="445" fill="#5C6A7E" font-size="15" font-family="system-ui,sans-serif">reporting, coverage, and release confidence - no orphaned tests in the tree.</text>
+</svg>

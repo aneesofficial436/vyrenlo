@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Split repository model">
+  <rect width="1200" height="675" fill="#F5F3EF"/>
+  <rect x="100" y="100" width="460" height="480" rx="16" fill="#fff" stroke="#0BBDB3" stroke-width="2"/>
+  <text x="130" y="150" fill="#0BBDB3" font-size="13" font-weight="600" font-family="system-ui,sans-serif">PARENT</text>
+  <text x="130" y="190" fill="#102A50" font-size="20" font-weight="600" font-family="system-ui,sans-serif">What to test</text>
+  <text x="130" y="240" fill="#5C6A7E" font-size="15" font-family="system-ui,sans-serif">- Gherkin features and data files</text>
+  <text x="130" y="275" fill="#5C6A7E" font-size="15" font-family="system-ui,sans-serif">- Pipelines and publish scripts</text>
+  <text x="130" y="310" fill="#5C6A7E" font-size="15" font-family="system-ui,sans-serif">- Agent skills and generated indexes</text>
+  <rect x="640" y="100" width="460" height="480" rx="16" fill="#fff" stroke="#102A50" stroke-width="2"/>
+  <text x="670" y="150" fill="#102A50" font-size="13" font-weight="600" font-family="system-ui,sans-serif">FRAMEWORK SUBMODULE</text>
+  <text x="670" y="190" fill="#102A50" font-size="20" font-weight="600" font-family="system-ui,sans-serif">How to drive the UI</text>
+  <text x="670" y="240" fill="#5C6A7E" font-size="15" font-family="system-ui,sans-serif">- Steps, pages, hooks, configs</text>
+  <text x="670" y="275" fill="#5C6A7E" font-size="15" font-family="system-ui,sans-serif">- ElementResolver vocabulary</text>
+  <text x="670" y="310" fill="#5C6A7E" font-size="15" font-family="system-ui,sans-serif">- Release-branch checkout in CI</text>
+  <text x="600" y="360" text-anchor="middle" fill="#5C6A7E" font-size="28" font-family="system-ui,sans-serif">+</text>
+  <text x="600" y="560" text-anchor="middle" fill="#0C6E68" font-size="14" font-weight="600" font-family="system-ui,sans-serif">QA velocity decoupled from locator maintenance</text>
+</svg>

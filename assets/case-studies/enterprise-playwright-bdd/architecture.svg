@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 440" width="920" height="440" role="img" aria-label="Two-repo Playwright BDD architecture">
+  <defs>
+    <linearGradient id="bdd-arch-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#102A50"/>
+      <stop offset="100%" stop-color="#0BBDB3"/>
+    </linearGradient>
+    <marker id="bdd-arch-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#5C6A7E"/>
+    </marker>
+  </defs>
+  <rect width="920" height="440" rx="16" fill="#F5F3EF"/>
+  <text x="460" y="36" text-anchor="middle" fill="#102A50" font-family="system-ui,sans-serif" font-size="15" font-weight="600">Two repositories, one runtime</text>
+
+  <rect x="40" y="64" width="380" height="148" rx="12" fill="#fff" stroke="#E6E0D6"/>
+  <text x="60" y="92" fill="#0BBDB3" font-family="system-ui,sans-serif" font-size="11" font-weight="600">PARENT REPO</text>
+  <text x="60" y="118" fill="#102A50" font-size="13" font-weight="600" font-family="system-ui,sans-serif">Scenarios and delivery</text>
+  <text x="60" y="142" fill="#5C6A7E" font-size="11" font-family="system-ui,sans-serif">Features/ (Gherkin), data files, pipeline YAML</text>
+  <text x="60" y="162" fill="#5C6A7E" font-size="11" font-family="system-ui,sans-serif">Reporting scripts, agent skills and indexes</text>
+  <text x="60" y="192" fill="#5C6A7E" font-size="10" font-family="ui-monospace,monospace">npm run generateBdd - .features-gen/</text>
+
+  <rect x="500" y="64" width="380" height="148" rx="12" fill="#fff" stroke="#E6E0D6"/>
+  <text x="520" y="92" fill="#0BBDB3" font-family="system-ui,sans-serif" font-size="11" font-weight="600">FRAMEWORK (SUBMODULE)</text>
+  <text x="520" y="118" fill="#102A50" font-size="13" font-weight="600" font-family="system-ui,sans-serif">Reusable automation engine</text>
+  <text x="520" y="142" fill="#5C6A7E" font-size="11" font-family="system-ui,sans-serif">Steps, page objects, hooks, TestConfigs/</text>
+  <text x="520" y="162" fill="#5C6A7E" font-size="11" font-family="system-ui,sans-serif">ElementResolver, Support helpers, bddgen tooling</text>
+  <text x="520" y="192" fill="#5C6A7E" font-size="10" font-family="ui-monospace,monospace">Version branch pinned per app release line</text>
+
+  <path d="M 420 140 L 468 140" stroke="#5C6A7E" stroke-width="2" fill="none" marker-end="url(#bdd-arch-arrow)"/>
+  <path d="M 468 140 L 468 120 L 500 120" stroke="#5C6A7E" stroke-width="2" fill="none" marker-end="url(#bdd-arch-arrow)"/>
+
+  <rect x="120" y="248" width="680" height="72" rx="10" fill="url(#bdd-arch-grad)" opacity="0.12" stroke="#0BBDB3"/>
+  <text x="460" y="278" text-anchor="middle" fill="#0C6E68" font-size="12" font-weight="600" font-family="system-ui,sans-serif">Playwright execution</text>
+  <text x="460" y="300" text-anchor="middle" fill="#5C6A7E" font-size="11" font-family="system-ui,sans-serif">Fixtures - Hooks - Steps - Pages - publish results to test plans</text>
+
+  <rect x="40" y="340" width="200" height="56" rx="8" fill="#fff" stroke="#E6E0D6"/>
+  <text x="140" y="364" text-anchor="middle" fill="#102A50" font-size="11" font-weight="600" font-family="system-ui,sans-serif">Azure DevOps</text>
+  <text x="140" y="382" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">Test plans and work items</text>
+
+  <rect x="260" y="340" width="200" height="56" rx="8" fill="#fff" stroke="#E6E0D6"/>
+  <text x="360" y="364" text-anchor="middle" fill="#102A50" font-size="11" font-weight="600" font-family="system-ui,sans-serif">CI pipelines</text>
+  <text x="360" y="382" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">Daily, sharded, PR validation</text>
+
+  <rect x="480" y="340" width="200" height="56" rx="8" fill="#fff" stroke="#E6E0D6"/>
+  <text x="580" y="364" text-anchor="middle" fill="#102A50" font-size="11" font-weight="600" font-family="system-ui,sans-serif">Allure + XML</text>
+  <text x="580" y="382" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">Triage and traces</text>
+
+  <rect x="700" y="340" width="180" height="56" rx="8" fill="#fff" stroke="#E6E0D6"/>
+  <text x="790" y="364" text-anchor="middle" fill="#102A50" font-size="11" font-weight="600" font-family="system-ui,sans-serif">Agents and MCP</text>
+  <text x="790" y="382" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">Same playbook as humans</text>
+</svg>

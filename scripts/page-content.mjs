@@ -417,6 +417,26 @@ export const caseStudies = [
     impact: [],
   },
   {
+    slug: "vyrenlo-ai-leadflow",
+    title: "Vyrenlo AI LeadFlow",
+    tag: "SaaS Applications",
+    summary:
+      "Multi-tenant lead automation platform—capture from web and social, AI qualification with hot/warm/cold scoring, staff alerts, timed email follow-ups with optional approval, and a Next.js CRM. FastAPI owns business rules; n8n orchestrates schedules and channel ingest.",
+    challenge: "",
+    solution: "",
+    impact: [],
+  },
+  {
+    slug: "enterprise-playwright-bdd",
+    title: "Enterprise Playwright-BDD Regression",
+    tag: "Quality Assurance",
+    summary:
+      "Large-scale end-to-end automation for a complex enterprise web app—hundreds of Gherkin scenarios linked to test plans, Playwright execution, split scenario/framework repos, merge-smart CI gates, and agent-ready skills for triage and review.",
+    challenge: "",
+    solution: "",
+    impact: [],
+  },
+  {
     slug: "support-knowledge-copilot",
     title: "Support Knowledge Copilot",
     tag: "Generative AI",
@@ -455,7 +475,8 @@ export const hubPages = {
     title: "Case Studies",
     metaTitle: "Case Studies | Vyrenlo",
     heroTitle: "How Vyrenlo powers growth",
-    heroLead: "Healthcare operations software, AI-assisted support, and agentic workflows that streamline back-office processes.",
+    heroLead:
+      "Healthcare operations software, multi-tenant lead automation, enterprise test automation, AI-assisted support, and agentic workflows that streamline delivery.",
   },
   contact: {
     title: "Contact",

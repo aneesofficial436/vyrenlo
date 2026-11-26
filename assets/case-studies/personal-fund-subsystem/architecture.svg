@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 420" width="920" height="420" role="img" aria-label="PFS system architecture">
+  <defs>
+    <linearGradient id="pfs-arch-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#102A50"/>
+      <stop offset="100%" stop-color="#0BBDB3"/>
+    </linearGradient>
+    <marker id="pfs-arch-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#5C6A7E"/>
+    </marker>
+  </defs>
+  <rect width="920" height="420" rx="16" fill="#F5F3EF"/>
+  <text x="460" y="36" text-anchor="middle" fill="#102A50" font-family="system-ui,sans-serif" font-size="15" font-weight="600">How PFS is built</text>
+
+  <rect x="40" y="72" width="140" height="64" rx="10" fill="#fff" stroke="#E6E0D6"/>
+  <text x="110" y="98" text-anchor="middle" fill="#102A50" font-size="12" font-weight="600" font-family="system-ui,sans-serif">Browser</text>
+  <text x="110" y="118" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">Blazor Server</text>
+
+  <rect x="220" y="72" width="160" height="64" rx="10" fill="#fff" stroke="#E6E0D6"/>
+  <text x="300" y="98" text-anchor="middle" fill="#102A50" font-size="12" font-weight="600" font-family="system-ui,sans-serif">HTTPS API</text>
+  <text x="300" y="118" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">.NET 8</text>
+
+  <rect x="420" y="56" width="150" height="44" rx="8" fill="url(#pfs-arch-grad)" opacity="0.15" stroke="#0BBDB3"/>
+  <text x="495" y="83" text-anchor="middle" fill="#0C6E68" font-size="11" font-weight="600" font-family="system-ui,sans-serif">Auth and permissions</text>
+
+  <rect x="420" y="108" width="150" height="44" rx="8" fill="#fff" stroke="#E6E0D6"/>
+  <text x="495" y="135" text-anchor="middle" fill="#102A50" font-size="11" font-weight="600" font-family="system-ui,sans-serif">Services</text>
+
+  <rect x="610" y="72" width="130" height="64" rx="10" fill="#fff" stroke="#E6E0D6"/>
+  <text x="675" y="98" text-anchor="middle" fill="#102A50" font-size="12" font-weight="600" font-family="system-ui,sans-serif">Dapper</text>
+  <text x="675" y="118" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">Repositories</text>
+
+  <rect x="770" y="72" width="110" height="64" rx="10" fill="#fff" stroke="#E6E0D6"/>
+  <text x="825" y="98" text-anchor="middle" fill="#102A50" font-size="12" font-weight="600" font-family="system-ui,sans-serif">SQL Server</text>
+  <text x="825" y="118" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">Procedures</text>
+
+  <line x1="180" y1="104" x2="218" y2="104" stroke="#5C6A7E" stroke-width="2" marker-end="url(#pfs-arch-arrow)"/>
+  <line x1="380" y1="104" x2="418" y2="104" stroke="#5C6A7E" stroke-width="2" marker-end="url(#pfs-arch-arrow)"/>
+  <line x1="570" y1="104" x2="608" y2="104" stroke="#5C6A7E" stroke-width="2" marker-end="url(#pfs-arch-arrow)"/>
+  <line x1="740" y1="104" x2="768" y2="104" stroke="#5C6A7E" stroke-width="2" marker-end="url(#pfs-arch-arrow)"/>
+
+  <rect x="770" y="200" width="110" height="56" rx="10" fill="#fff" stroke="#E6E0D6"/>
+  <text x="825" y="224" text-anchor="middle" fill="#102A50" font-size="12" font-weight="600" font-family="system-ui,sans-serif">SSRS</text>
+  <text x="825" y="242" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">PDF / Excel</text>
+  <line x1="825" y1="136" x2="825" y2="198" stroke="#5C6A7E" stroke-width="2" marker-end="url(#pfs-arch-arrow)"/>
+
+  <rect x="40" y="200" width="200" height="56" rx="10" fill="#fff" stroke="#E6E0D6"/>
+  <text x="140" y="224" text-anchor="middle" fill="#102A50" font-size="12" font-weight="600" font-family="system-ui,sans-serif">Active Directory</text>
+  <text x="140" y="242" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">Windows sign-in</text>
+  <path d="M140 200 L140 170 L300 130" fill="none" stroke="#5C6A7E" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#pfs-arch-arrow)"/>
+
+  <rect x="280" y="290" width="360" height="100" rx="12" fill="#fff" stroke="#E6E0D6"/>
+  <text x="460" y="318" text-anchor="middle" fill="#102A50" font-size="13" font-weight="600" font-family="system-ui,sans-serif">What staff do in one session</text>
+  <text x="460" y="344" text-anchor="middle" fill="#5C6A7E" font-size="11" font-family="system-ui,sans-serif">Find patient, post or reverse transactions, run inquiry and reports</text>
+  <text x="460" y="368" text-anchor="middle" fill="#5C6A7E" font-size="11" font-family="system-ui,sans-serif">Institution context and role-based menu on every screen</text>
+</svg>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Large-scale playwright-bdd automation—hundreds of Gherkin scenarios, split repos, Azure DevOps traceability, merge-smart CI, and agent-ready test ops." />
+  <title>Enterprise Playwright-BDD Regression | Vyrenlo Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../../styles-inner.css" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a class="logo" href="../../index.html" aria-label="Vyrenlo home">
+        <img class="logo-mark" src="../../assets/brand/logo-mark.png" alt="" width="40" height="40" />
+        <span class="logo-text">Vyrenlo</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      
+      <ul class="nav-links">
+        <li class="nav-item-has-menu">
+          <button type="button" class="nav-parent" aria-expanded="false" aria-haspopup="true">Services</button>
+          <ul class="nav-dropdown nav-dropdown-wide">
+          <li><a href="../../service/generative-ai/index.html">Generative AI</a></li>
+          <li><a href="../../service/agentic-ai/index.html">Agentic AI</a></li>
+          <li><a href="../../service/computer-vision/index.html">Computer Vision</a></li>
+          <li><a href="../../service/predictive-analytics/index.html">Predictive Analytics</a></li>
+          <li><a href="../../service/web-applications/index.html">Web Applications</a></li>
+          <li><a href="../../service/mobile-applications/index.html">Mobile Applications</a></li>
+          <li><a href="../../service/saas-applications/index.html">SaaS Applications</a></li>
+          <li><a href="../../service/cloud-services/index.html">Cloud Services</a></li>
+          <li><a href="../../service/custom-software/index.html">Custom Software</a></li>
+          <li><a href="../../service/ui-ux-design/index.html">UI/UX Design</a></li>
+          <li><a href="../../service/quality-assurance/index.html">Quality Assurance</a></li>
+          <li><a href="../../service/staff-augmentation/index.html">Staff Augmentation</a></li>
+          </ul>
+        </li>
+        <!-- Nav: Agents dropdown hidden while pages are being updated
+        <li class="nav-item-has-menu">
+          <button type="button" class="nav-parent" aria-expanded="false" aria-haspopup="true">Agents</button>
+          <ul class="nav-dropdown">
+            <li><a href="../../agent/customer-support/index.html">Customer Support Agent</a></li>
+            <li><a href="../../agent/calling-agent/index.html">Calling Agent</a></li>
+            <li><a href="../../agent/sales-analyst/index.html">Sales Analyst Agent</a></li>
+            <li><a href="../../agent/leads-automation/index.html">Leads Automation Agent</a></li>
+            <li><a href="../../agent/email-automation/index.html">Email Automation Agent</a></li>
+            <li><a href="../../agent/e-commerce-bots/index.html">E-Commerce Bots</a></li>
+            <li><a href="../../agent/document-analyzer/index.html">Document Analyzer Agent</a></li>
+            <li><a href="../../agent/legal-assistant/index.html">Legal Assistant Agent</a></li>
+            <li><a href="../../agent/lawledger/index.html">LawLedger Agent</a></li>
+            <li><a href="../../agent/pdf-generator/index.html">PDF Generator Agent</a></li>
+            <li><a href="../../agent/image-generation/index.html">Image Generation Agent</a></li>
+            <li><a href="../../agent/scraping-automation/index.html">Scraping Automation Agent</a></li>
+          </ul>
+        </li>
+        -->
+        <!-- Nav: Industries dropdown hidden while pages are being updated
+        <li class="nav-item-has-menu">
+          <button type="button" class="nav-parent" aria-expanded="false" aria-haspopup="true">Industries</button>
+          <ul class="nav-dropdown nav-dropdown-wide">
+            <li><a href="../../industry/healthcare/index.html">Healthcare</a></li>
+            <li><a href="../../industry/banking-financial/index.html">Banking &amp; Financial Services</a></li>
+            <li><a href="../../industry/e-commerce/index.html">E-Commerce</a></li>
+            <li><a href="../../industry/retail/index.html">Retail</a></li>
+            <li><a href="../../industry/education/index.html">Education</a></li>
+            <li><a href="../../industry/legal-industry/index.html">Legal</a></li>
+            <li><a href="../../industry/hipaa-compliance/index.html">HIPAA Compliance</a></li>
+            <li><a href="../../industry/pharmaceuticals/index.html">Pharmaceuticals</a></li>
+            <li><a href="../../industry/telecommunications/index.html">Telecommunications</a></li>
+            <li><a href="../../industry/proptech-real-estate/index.html">PropTech / Real Estate</a></li>
+            <li><a href="../../industry/sports-fitness/index.html">Sports &amp; Fitness</a></li>
+            <li><a href="../../industry/entertainment-media/index.html">Entertainment &amp; Media</a></li>
+          </ul>
+        </li>
+        -->
+        <li><a href="../../index.html#work">Work</a></li>
+        <li><a href="../../index.html#pilot">Pilot</a></li>
+        <li><a href="../../index.html#process">Process</a></li>
+        <li><a href="../../index.html#faq">FAQ</a></li>
+        <li><a href="../../contact/index.html">Contact</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a class="btn btn-ghost btn-sm nav-audit" href="../../tools/website-audit/index.html">Free audit</a>
+        <a class="btn btn-primary nav-cta calendly-cta" href="../../contact/index.html">Book a call</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    
+    <section class="page-hero case-hero-visual">
+      <div class="container page-hero-inner case-hero-inner-wide">
+        <span class="case-tag">Quality Assurance</span>
+        <h1>Enterprise Playwright-BDD Regression</h1>
+        <p class="page-lead">Hundreds of Gherkin scenarios wired to test plans, executed with Playwright—two-repo architecture, merge-smart CI, and agent-ready ops for enterprise web apps.</p>
+        <div class="tag-grid case-tags"><span class="tag-pill">Playwright</span>
+          <span class="tag-pill">playwright-bdd</span>
+          <span class="tag-pill">TypeScript</span>
+          <span class="tag-pill">Azure DevOps</span>
+          <span class="tag-pill">Test automation</span>
+          <span class="tag-pill">Agentic QA</span></div>
+        <div class="page-hero-actions">
+          <a class="btn btn-primary" href="#program-tour">How the program works</a>
+          <a class="btn btn-ghost" href="#download">Download case study</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted case-glance-section">
+      <div class="container container-case-wide">
+        <div class="hero-stats case-glance-stats">
+          <div class="stat">
+            <span class="stat-num">100s+</span>
+            <span class="stat-label">Gherkin scenarios tied to work items</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">2</span>
+            <span class="stat-label">Repositories — scenarios vs framework</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">4</span>
+            <span class="stat-label">Failure classes in the triage SOP</span>
+          </div>
+        </div>
+        <div class="case-glance-grid">
+          <article class="case-glance-card">
+            <span class="case-glance-label">Challenge</span>
+            <h2>Regression that cannot keep up</h2>
+            <p>A sprawling enterprise web app outgrew manual regression. Teams needed traceability, reuse, and parallel runs without constant locator thrash.</p>
+          </article>
+          <article class="case-glance-card">
+            <span class="case-glance-label">Solution</span>
+            <h2>Playwright-BDD at scale</h2>
+            <p>playwright-bdd, a pinned framework submodule, ElementResolver vocabulary, and Azure DevOps publishing—owned by QA, automation, and platform together.</p>
+          </article>
+          <article class="case-glance-card">
+            <span class="case-glance-label">Outcome</span>
+            <h2>Confidence to merge</h2>
+            <p>PR validation that highlights new failures, rich traces for triage, and a repo-shaped runbook for humans and coding agents.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section case-tour-section" id="program-tour">
+      <div class="container container-case-wide">
+        <header class="case-section-head case-section-head-split">
+          <div>
+            <p class="eyebrow">Program tour</p>
+            <h2>From scenario to signal</h2>
+            <p class="section-desc">Five design pillars of a large-scale BDD program—patterns only, no customer or tenant identifiers.</p>
+          </div>
+          <div class="case-tour-toolbar" aria-hidden="true">
+            <span class="work-carousel-counter case-tour-counter" data-carousel-counter>01 / 05</span>
+          </div>
+        </header>
+        <div class="case-tour" data-case-carousel tabindex="0" aria-roledescription="carousel" aria-label="Playwright BDD program diagrams">
+          <button type="button" class="case-tour-arrow carousel-btn" data-carousel-prev aria-label="Previous diagram">
+            <span aria-hidden="true">←</span>
+          </button>
+          <div class="case-tour-shell">
+            <div class="case-tour-viewport">
+              
+        <article class="case-tour-slide active" data-slide="0">
+          <div class="case-tour-grid">
+            <div class="case-tour-copy">
+              <span class="case-tour-step">Traceability</span>
+              <h3 class="case-tour-title">Traceability by design</h3>
+              <p class="case-tour-desc">Each Gherkin file maps to a managed test case—folders follow the test plan so coverage and reporting stay honest.</p>
+            </div>
+            <figure class="case-tour-media">
+              <img src="../../assets/case-studies/enterprise-playwright-bdd/01-traceability.svg" alt="Traceability by design — diagram" width="1200" height="675" loading="eager" decoding="async" />
+            </figure>
+          </div>
+        </article>
+
+        <article class="case-tour-slide" data-slide="1" hidden>
+          <div class="case-tour-grid">
+            <div class="case-tour-copy">
+              <span class="case-tour-step">Architecture</span>
+              <h3 class="case-tour-title">Split what from how</h3>
+              <p class="case-tour-desc">Scenarios and data in the parent repo; steps, page objects, and configs in a versioned framework submodule.</p>
+            </div>
+            <figure class="case-tour-media">
+              <img src="../../assets/case-studies/enterprise-playwright-bdd/02-two-repos.svg" alt="Split what from how — diagram" width="1200" height="675" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+        </article>
+
+        <article class="case-tour-slide" data-slide="2" hidden>
+          <div class="case-tour-grid">
+            <div class="case-tour-copy">
+              <span class="case-tour-step">Pipeline</span>
+              <h3 class="case-tour-title">Generate, then run</h3>
+              <p class="case-tour-desc">Shared-scenario expansion and bddgen produce Playwright specs—never hand-edit generated output.</p>
+            </div>
+            <figure class="case-tour-media">
+              <img src="../../assets/case-studies/enterprise-playwright-bdd/03-bdd-pipeline.svg" alt="Generate, then run — diagram" width="1200" height="675" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+        </article>
+
+        <article class="case-tour-slide" data-slide="3" hidden>
+          <div class="case-tour-grid">
+            <div class="case-tour-copy">
+              <span class="case-tour-step">CI / CD</span>
+              <h3 class="case-tour-title">Gates that respect merge reality</h3>
+              <p class="case-tour-desc">PR pipelines separate new failures from baseline noise, with a clear four-step triage SOP.</p>
+            </div>
+            <figure class="case-tour-media">
+              <img src="../../assets/case-studies/enterprise-playwright-bdd/04-ci-gates.svg" alt="Gates that respect merge reality — diagram" width="1200" height="675" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+        </article>
+
+        <article class="case-tour-slide" data-slide="4" hidden>
+          <div class="case-tour-grid">
+            <div class="case-tour-copy">
+              <span class="case-tour-step">Agent-ready</span>
+              <h3 class="case-tour-title">Built for humans and agents</h3>
+              <p class="case-tour-desc">Skills, indexes, and AI-README navigation so debug and review use one playbook across the team.</p>
+            </div>
+            <figure class="case-tour-media">
+              <img src="../../assets/case-studies/enterprise-playwright-bdd/05-agent-ops.svg" alt="Built for humans and agents — diagram" width="1200" height="675" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+        </article>
+            </div>
+          </div>
+          <button type="button" class="case-tour-arrow carousel-btn" data-carousel-next aria-label="Next diagram">
+            <span aria-hidden="true">→</span>
+          </button>
+          <div class="case-tour-dots" role="tablist" aria-label="Program tour steps">
+        <button type="button" class="case-tour-dot active" role="tab" aria-selected="true" data-carousel-goto="0" aria-label="Traceability by design">
+          <span class="case-tour-dot-label">Traceability</span>
+        </button>
+
+        <button type="button" class="case-tour-dot" role="tab" aria-selected="false" data-carousel-goto="1" aria-label="Split what from how">
+          <span class="case-tour-dot-label">Architecture</span>
+        </button>
+
+        <button type="button" class="case-tour-dot" role="tab" aria-selected="false" data-carousel-goto="2" aria-label="Generate, then run">
+          <span class="case-tour-dot-label">Pipeline</span>
+        </button>
+
+        <button type="button" class="case-tour-dot" role="tab" aria-selected="false" data-carousel-goto="3" aria-label="Gates that respect merge reality">
+          <span class="case-tour-dot-label">CI / CD</span>
+        </button>
+
+        <button type="button" class="case-tour-dot" role="tab" aria-selected="false" data-carousel-goto="4" aria-label="Built for humans and agents">
+          <span class="case-tour-dot-label">Agent-ready</span>
+        </button>
+          </div>
+          <p class="case-tour-hint">Use arrows or tabs to browse the flow</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container container-case-wide case-arch-layout">
+        <header class="case-section-head">
+          <p class="eyebrow">Architecture</p>
+          <h2>Separate “what to test” from “how to drive the UI”</h2>
+          <p class="section-desc">QA ships scenarios; test automation ships vocabulary. CI checks out the framework branch that matches the application release line.</p>
+        </header>
+        <figure class="case-arch-figure case-arch-figure--inline" aria-label="Two-repository Playwright BDD architecture">
+          <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 440" width="920" height="440" role="img" aria-label="Two-repo Playwright BDD architecture">
+  <defs>
+    <linearGradient id="bdd-arch-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#102A50"/>
+      <stop offset="100%" stop-color="#0BBDB3"/>
+    </linearGradient>
+    <marker id="bdd-arch-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#5C6A7E"/>
+    </marker>
+  </defs>
+  <rect width="920" height="440" rx="16" fill="#F5F3EF"/>
+  <text x="460" y="36" text-anchor="middle" fill="#102A50" font-family="system-ui,sans-serif" font-size="15" font-weight="600">Two repositories, one runtime</text>
+
+  <rect x="40" y="64" width="380" height="148" rx="12" fill="#fff" stroke="#E6E0D6"/>
+  <text x="60" y="92" fill="#0BBDB3" font-family="system-ui,sans-serif" font-size="11" font-weight="600">PARENT REPO</text>
+  <text x="60" y="118" fill="#102A50" font-size="13" font-weight="600" font-family="system-ui,sans-serif">Scenarios and delivery</text>
+  <text x="60" y="142" fill="#5C6A7E" font-size="11" font-family="system-ui,sans-serif">Features/ (Gherkin), data files, pipeline YAML</text>
+  <text x="60" y="162" fill="#5C6A7E" font-size="11" font-family="system-ui,sans-serif">Reporting scripts, agent skills and indexes</text>
+  <text x="60" y="192" fill="#5C6A7E" font-size="10" font-family="ui-monospace,monospace">npm run generateBdd - .features-gen/</text>
+
+  <rect x="500" y="64" width="380" height="148" rx="12" fill="#fff" stroke="#E6E0D6"/>
+  <text x="520" y="92" fill="#0BBDB3" font-family="system-ui,sans-serif" font-size="11" font-weight="600">FRAMEWORK (SUBMODULE)</text>
+  <text x="520" y="118" fill="#102A50" font-size="13" font-weight="600" font-family="system-ui,sans-serif">Reusable automation engine</text>
+  <text x="520" y="142" fill="#5C6A7E" font-size="11" font-family="system-ui,sans-serif">Steps, page objects, hooks, TestConfigs/</text>
+  <text x="520" y="162" fill="#5C6A7E" font-size="11" font-family="system-ui,sans-serif">ElementResolver, Support helpers, bddgen tooling</text>
+  <text x="520" y="192" fill="#5C6A7E" font-size="10" font-family="ui-monospace,monospace">Version branch pinned per app release line</text>
+
+  <path d="M 420 140 L 468 140" stroke="#5C6A7E" stroke-width="2" fill="none" marker-end="url(#bdd-arch-arrow)"/>
+  <path d="M 468 140 L 468 120 L 500 120" stroke="#5C6A7E" stroke-width="2" fill="none" marker-end="url(#bdd-arch-arrow)"/>
+
+  <rect x="120" y="248" width="680" height="72" rx="10" fill="url(#bdd-arch-grad)" opacity="0.12" stroke="#0BBDB3"/>
+  <text x="460" y="278" text-anchor="middle" fill="#0C6E68" font-size="12" font-weight="600" font-family="system-ui,sans-serif">Playwright execution</text>
+  <text x="460" y="300" text-anchor="middle" fill="#5C6A7E" font-size="11" font-family="system-ui,sans-serif">Fixtures - Hooks - Steps - Pages - publish results to test plans</text>
+
+  <rect x="40" y="340" width="200" height="56" rx="8" fill="#fff" stroke="#E6E0D6"/>
+  <text x="140" y="364" text-anchor="middle" fill="#102A50" font-size="11" font-weight="600" font-family="system-ui,sans-serif">Azure DevOps</text>
+  <text x="140" y="382" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">Test plans and work items</text>
+
+  <rect x="260" y="340" width="200" height="56" rx="8" fill="#fff" stroke="#E6E0D6"/>
+  <text x="360" y="364" text-anchor="middle" fill="#102A50" font-size="11" font-weight="600" font-family="system-ui,sans-serif">CI pipelines</text>
+  <text x="360" y="382" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">Daily, sharded, PR validation</text>
+
+  <rect x="480" y="340" width="200" height="56" rx="8" fill="#fff" stroke="#E6E0D6"/>
+  <text x="580" y="364" text-anchor="middle" fill="#102A50" font-size="11" font-weight="600" font-family="system-ui,sans-serif">Allure + XML</text>
+  <text x="580" y="382" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">Triage and traces</text>
+
+  <rect x="700" y="340" width="180" height="56" rx="8" fill="#fff" stroke="#E6E0D6"/>
+  <text x="790" y="364" text-anchor="middle" fill="#102A50" font-size="11" font-weight="600" font-family="system-ui,sans-serif">Agents and MCP</text>
+  <text x="790" y="382" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">Same playbook as humans</text>
+</svg>
+        </figure>
+        <ul class="check-list case-arch-points">
+          <li>Generated <code>.features-gen/</code> specs treated as build output—never edited by hand</li>
+          <li>Logical element names via ElementResolver—not scattered selectors in features</li>
+          <li>Allure, JUnit XML, traces, and step-timing reports for fast triage</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container-case-wide">
+        <header class="case-section-head">
+          <p class="eyebrow">Design lessons</p>
+          <h2>What we would repeat on the next program</h2>
+        </header>
+        <ul class="check-list case-arch-points">
+          <li>Separate what to test from how to drive the UI—QA velocity without everyone touching locators</li>
+          <li>Treat generated Playwright specs as build artifacts</li>
+          <li>Version the framework with the product—explicit CI branch checkout over a stale submodule pin</li>
+          <li>Invest in one step text and one logical element name; indexes make that searchable</li>
+          <li>Classify failures before coding—locator, step, config, or product defect</li>
+          <li>Embed agent skills in the repo so onboarding is playbook-driven</li>
+          <li>Tags are execution contracts—they control parallel runs and reporting dimensions</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section case-download-section" id="download">
+      <div class="container case-download-grid">
+        <div class="case-download-copy">
+          <p class="eyebrow">Full write-up</p>
+          <h2>Download the case study</h2>
+          <p class="section-desc">PDF with architecture, governance, stack, and shareable design lessons. We will also send occasional product and engineering updates—you can unsubscribe anytime.</p>
+        </div>
+        <form class="contact-form case-download-form" id="case-study-download-form" action="#" method="post"
+          data-download-url="../../assets/case-studies/enterprise-playwright-bdd/enterprise-playwright-bdd-case-study.pdf">
+          <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="hidden" name="_subject" value="Playwright BDD case study download" />
+          <input type="hidden" name="case_study" value="Enterprise Playwright-BDD Regression" />
+          <div class="case-download-form-row">
+            <label>First name<input type="text" name="first_name" required autocomplete="given-name" /></label>
+            <label>Last name<input type="text" name="last_name" required autocomplete="family-name" /></label>
+          </div>
+          <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+          <label>Phone<input type="tel" name="phone" required autocomplete="tel" /></label>
+          <label class="case-consent">
+            <input type="checkbox" name="consent" value="yes" required />
+            <span>I agree to the <a href="../../terms/index.html">Terms and Conditions</a> and <a href="../../privacy/index.html">Privacy Policy</a>.</span>
+          </label>
+          <button type="submit" class="btn btn-primary">Download PDF</button>
+          <p class="form-status" data-form-status hidden role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container case-cta-bar">
+        <p>Scaling test automation or standing up agent-assisted QA?</p>
+        <a class="btn btn-primary calendly-cta" href="../../contact/index.html">Discuss a similar program</a>
+      </div>
+    </section>
+  </main>
+  <a class="chat-fab" href="../../contact/index.html">Ask us anything</a>
+  
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="../../index.html">
+          <img class="logo-mark" src="../../assets/brand/logo-mark.png" alt="" width="40" height="40" />
+          <span class="logo-text">Vyrenlo</span>
+        </a>
+        <p>AI solutions and software engineering for ambitious businesses.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../../service/generative-ai/index.html">Generative AI</a></li>
+          <li><a href="../../service/agentic-ai/index.html">Agentic AI</a></li>
+          <li><a href="../../service/computer-vision/index.html">Computer Vision</a></li>
+          <li><a href="../../service/predictive-analytics/index.html">Predictive Analytics</a></li>
+          <li><a href="../../service/web-applications/index.html">Web Applications</a></li>
+          <li><a href="../../service/mobile-applications/index.html">Mobile Applications</a></li>
+          <li><a href="../../index.html#services">All services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="../../industry/healthcare/index.html">Healthcare</a></li>
+          <li><a href="../../industry/banking-financial/index.html">Banking &amp; Financial Services</a></li>
+          <li><a href="../../industry/e-commerce/index.html">E-Commerce</a></li>
+          <li><a href="../../industry/retail/index.html">Retail</a></li>
+          <li><a href="../../industry/education/index.html">Education</a></li>
+          <li><a href="../../industry/legal-industry/index.html">Legal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../../case-studies/index.html">Case studies</a></li>
+          <li><a href="../../contact/index.html">Contact</a></li>
+          <li><a href="../../index.html#about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../../privacy/index.html">Privacy Policy</a></li>
+          <li><a href="../../terms/index.html">Terms and Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Vyrenlo. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="../../form-config.js"></script>
+  <script src="../../main.js"></script>
+</body>
+</html>

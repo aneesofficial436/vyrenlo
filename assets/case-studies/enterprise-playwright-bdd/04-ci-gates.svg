@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="CI quality gates">
+  <rect width="1200" height="675" fill="#F5F3EF"/>
+  <text x="120" y="120" fill="#102A50" font-size="22" font-weight="600" font-family="system-ui,sans-serif">Merge with signal, not noise</text>
+  <rect x="120" y="160" width="500" height="200" rx="12" fill="#fff" stroke="#E6E0D6"/>
+  <text x="150" y="210" fill="#c0392b" font-size="14" font-weight="600" font-family="system-ui,sans-serif">Failures introduced by this PR</text>
+  <rect x="150" y="230" width="440" height="12" rx="4" fill="#e74c3c" opacity="0.6"/>
+  <text x="150" y="270" fill="#5C6A7E" font-size="13" font-family="system-ui,sans-serif">Block merge - investigate before shipping</text>
+  <rect x="680" y="160" width="400" height="200" rx="12" fill="#fff" stroke="#E6E0D6"/>
+  <text x="710" y="210" fill="#5C6A7E" font-size="14" font-weight="600" font-family="system-ui,sans-serif">Already failing on target branch</text>
+  <rect x="710" y="230" width="340" height="12" rx="4" fill="#D4CEC4"/>
+  <text x="710" y="270" fill="#5C6A7E" font-size="13" font-family="system-ui,sans-serif">Surfaced but does not block unrelated work</text>
+  <rect x="120" y="400" width="960" height="200" rx="12" fill="#fff" stroke="#0BBDB3"/>
+  <text x="150" y="450" fill="#102A50" font-size="15" font-weight="600" font-family="system-ui,sans-serif">Triage playbook</text>
+  <text x="150" y="485" fill="#5C6A7E" font-size="14" font-family="system-ui,sans-serif">1. Locator  2. Step  3. Config  4. Product defect</text>
+  <text x="150" y="530" fill="#5C6A7E" font-size="14" font-family="system-ui,sans-serif">JUnit XML, traces, Allure tags, and console logs - one failure list</text>
+</svg>

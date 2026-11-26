@@ -29,7 +29,7 @@ Opening folders directly in Chrome (`file:///.../service/generative-ai/`) shows 
 
 ## Contact form (Formspree)
 
-1. Create a free form at [Formspree](https://formspree.io/) and set notifications to **contact@vyrenlo.com** (confirm that address).
+1. Create a free form at [Formspree](https://formspree.io/) — **contact@vyrenlo.com** and **info@vyrenlo.com** are both active; point Formspree at one and CC the other if you want both to receive submissions.
 2. Copy the form URL (e.g. `https://formspree.io/f/abcdefgh`).
 3. Paste it in **`form-config.js`**:
 

@@ -101,14 +101,15 @@
     });
   }
 
-  /* Work carousel */
-  const carousel = document.querySelector("[data-work-carousel]");
-  if (carousel) {
-    const slides = [...carousel.querySelectorAll(".work-slide")];
-    const counter = carousel.querySelector("[data-carousel-counter]");
-    const dots = [...carousel.querySelectorAll("[data-carousel-goto]")];
+  const initDotCarousel = (root, slideSelector) => {
+    if (!root) return;
+    const slides = [...root.querySelectorAll(slideSelector)];
+    if (!slides.length) return;
+    const counter = root.querySelector("[data-carousel-counter]");
+    const dots = [...root.querySelectorAll("[data-carousel-goto]")];
     const total = slides.length;
-    let index = 0;
+    let index = slides.findIndex((s) => s.classList.contains("active"));
+    if (index < 0) index = 0;
 
     const goTo = (i) => {
       index = (i + total) % total;
@@ -127,15 +128,27 @@
       }
     };
 
-    carousel.querySelector("[data-carousel-prev]")?.addEventListener("click", () => goTo(index - 1));
-    carousel.querySelector("[data-carousel-next]")?.addEventListener("click", () => goTo(index + 1));
+    root.querySelectorAll("[data-carousel-prev]").forEach((btn) => {
+      btn.addEventListener("click", () => goTo(index - 1));
+    });
+    root.querySelectorAll("[data-carousel-next]").forEach((btn) => {
+      btn.addEventListener("click", () => goTo(index + 1));
+    });
     dots.forEach((dot) => {
       dot.addEventListener("click", () => goTo(Number(dot.dataset.carouselGoto)));
     });
-  }
 
-  const form = document.getElementById("contact-form");
-  if (form) {
+    root.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") goTo(index - 1);
+      if (e.key === "ArrowRight") goTo(index + 1);
+    });
+  };
+
+  initDotCarousel(document.querySelector("[data-work-carousel]"), ".work-slide");
+  initDotCarousel(document.querySelector("[data-case-carousel]"), ".case-tour-slide");
+
+  const bindLeadForm = (form, { onSuccess } = {}) => {
+    if (!form) return;
     const statusEl =
       form.querySelector("[data-form-status]") ||
       (() => {
@@ -151,7 +164,7 @@
       e.preventDefault();
       const endpoint = window.VYRENLO_FORMSPREE_ENDPOINT;
       const btn = form.querySelector('button[type="submit"]');
-      const prev = btn.textContent;
+      const prev = btn?.textContent;
 
       const showStatus = (text, isError) => {
         statusEl.hidden = false;
@@ -159,13 +172,21 @@
         statusEl.classList.toggle("form-status-error", isError);
       };
 
+      const contactEmail = window.VYRENLO_CONTACT_EMAIL || "contact@vyrenlo.com";
+      const infoEmail = window.VYRENLO_INFO_EMAIL || "info@vyrenlo.com";
+
       if (!endpoint) {
-        showStatus("Form is not configured yet. Email us at contact@vyrenlo.com.", true);
+        showStatus(
+          `Form is not configured yet. Email us at ${contactEmail} or ${infoEmail}.`,
+          true
+        );
         return;
       }
 
-      btn.disabled = true;
-      btn.textContent = "Sending…";
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Sending…";
+      }
       statusEl.hidden = true;
 
       try {
@@ -175,16 +196,45 @@
           headers: { Accept: "application/json" },
         });
         if (!res.ok) throw new Error("Request failed");
-        showStatus("Thanks — we received your message and will reply within one business day.", false);
+        showStatus(onSuccess?.message ?? "Thanks — we received your message.", false);
         form.reset();
+        onSuccess?.run?.(form);
       } catch {
-        showStatus("Something went wrong. Please email contact@vyrenlo.com directly.", true);
+        showStatus(
+          `Something went wrong. Please email ${contactEmail} or ${infoEmail} directly.`,
+          true
+        );
       } finally {
-        btn.textContent = prev;
-        btn.disabled = false;
+        if (btn) {
+          btn.textContent = prev;
+          btn.disabled = false;
+        }
       }
     });
-  }
+  };
+
+  bindLeadForm(document.getElementById("contact-form"), {
+    onSuccess: {
+      message: "Thanks — we received your message and will reply within one business day.",
+    },
+  });
+
+  bindLeadForm(document.getElementById("case-study-download-form"), {
+    onSuccess: {
+      message: "Your download is starting. Check your inbox for a copy from our team.",
+      run: (form) => {
+        const url = form.dataset.downloadUrl;
+        if (!url) return;
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "vyrenlo-pfs-case-study.pdf";
+        a.rel = "noopener";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      },
+    },
+  });
 
   const header = document.querySelector(".site-header");
   window.addEventListener(

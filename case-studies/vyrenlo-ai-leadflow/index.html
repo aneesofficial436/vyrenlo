@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Multi-tenant lead automation—FastAPI, Next.js CRM, OpenAI qualification, n8n workflows, and Docker-backed demo for agencies and sales teams." />
+  <title>Vyrenlo AI LeadFlow | Vyrenlo Case Study</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../../styles-inner.css" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <nav class="nav container">
+      <a class="logo" href="../../index.html" aria-label="Vyrenlo home">
+        <img class="logo-mark" src="../../assets/brand/logo-mark.png" alt="" width="40" height="40" />
+        <span class="logo-text">Vyrenlo</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      
+      <ul class="nav-links">
+        <li class="nav-item-has-menu">
+          <button type="button" class="nav-parent" aria-expanded="false" aria-haspopup="true">Services</button>
+          <ul class="nav-dropdown nav-dropdown-wide">
+          <li><a href="../../service/generative-ai/index.html">Generative AI</a></li>
+          <li><a href="../../service/agentic-ai/index.html">Agentic AI</a></li>
+          <li><a href="../../service/computer-vision/index.html">Computer Vision</a></li>
+          <li><a href="../../service/predictive-analytics/index.html">Predictive Analytics</a></li>
+          <li><a href="../../service/web-applications/index.html">Web Applications</a></li>
+          <li><a href="../../service/mobile-applications/index.html">Mobile Applications</a></li>
+          <li><a href="../../service/saas-applications/index.html">SaaS Applications</a></li>
+          <li><a href="../../service/cloud-services/index.html">Cloud Services</a></li>
+          <li><a href="../../service/custom-software/index.html">Custom Software</a></li>
+          <li><a href="../../service/ui-ux-design/index.html">UI/UX Design</a></li>
+          <li><a href="../../service/quality-assurance/index.html">Quality Assurance</a></li>
+          <li><a href="../../service/staff-augmentation/index.html">Staff Augmentation</a></li>
+          </ul>
+        </li>
+        <!-- Nav: Agents dropdown hidden while pages are being updated
+        <li class="nav-item-has-menu">
+          <button type="button" class="nav-parent" aria-expanded="false" aria-haspopup="true">Agents</button>
+          <ul class="nav-dropdown">
+            <li><a href="../../agent/customer-support/index.html">Customer Support Agent</a></li>
+            <li><a href="../../agent/calling-agent/index.html">Calling Agent</a></li>
+            <li><a href="../../agent/sales-analyst/index.html">Sales Analyst Agent</a></li>
+            <li><a href="../../agent/leads-automation/index.html">Leads Automation Agent</a></li>
+            <li><a href="../../agent/email-automation/index.html">Email Automation Agent</a></li>
+            <li><a href="../../agent/e-commerce-bots/index.html">E-Commerce Bots</a></li>
+            <li><a href="../../agent/document-analyzer/index.html">Document Analyzer Agent</a></li>
+            <li><a href="../../agent/legal-assistant/index.html">Legal Assistant Agent</a></li>
+            <li><a href="../../agent/lawledger/index.html">LawLedger Agent</a></li>
+            <li><a href="../../agent/pdf-generator/index.html">PDF Generator Agent</a></li>
+            <li><a href="../../agent/image-generation/index.html">Image Generation Agent</a></li>
+            <li><a href="../../agent/scraping-automation/index.html">Scraping Automation Agent</a></li>
+          </ul>
+        </li>
+        -->
+        <!-- Nav: Industries dropdown hidden while pages are being updated
+        <li class="nav-item-has-menu">
+          <button type="button" class="nav-parent" aria-expanded="false" aria-haspopup="true">Industries</button>
+          <ul class="nav-dropdown nav-dropdown-wide">
+            <li><a href="../../industry/healthcare/index.html">Healthcare</a></li>
+            <li><a href="../../industry/banking-financial/index.html">Banking &amp; Financial Services</a></li>
+            <li><a href="../../industry/e-commerce/index.html">E-Commerce</a></li>
+            <li><a href="../../industry/retail/index.html">Retail</a></li>
+            <li><a href="../../industry/education/index.html">Education</a></li>
+            <li><a href="../../industry/legal-industry/index.html">Legal</a></li>
+            <li><a href="../../industry/hipaa-compliance/index.html">HIPAA Compliance</a></li>
+            <li><a href="../../industry/pharmaceuticals/index.html">Pharmaceuticals</a></li>
+            <li><a href="../../industry/telecommunications/index.html">Telecommunications</a></li>
+            <li><a href="../../industry/proptech-real-estate/index.html">PropTech / Real Estate</a></li>
+            <li><a href="../../industry/sports-fitness/index.html">Sports &amp; Fitness</a></li>
+            <li><a href="../../industry/entertainment-media/index.html">Entertainment &amp; Media</a></li>
+          </ul>
+        </li>
+        -->
+        <li><a href="../../index.html#work">Work</a></li>
+        <li><a href="../../index.html#pilot">Pilot</a></li>
+        <li><a href="../../index.html#process">Process</a></li>
+        <li><a href="../../index.html#faq">FAQ</a></li>
+        <li><a href="../../contact/index.html">Contact</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <a class="btn btn-ghost btn-sm nav-audit" href="../../tools/website-audit/index.html">Free audit</a>
+        <a class="btn btn-primary nav-cta calendly-cta" href="../../contact/index.html">Book a call</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">
+    
+    <section class="page-hero case-hero-visual">
+      <div class="container page-hero-inner case-hero-inner-wide">
+        <span class="case-tag">SaaS Applications</span>
+        <h1>Vyrenlo AI LeadFlow</h1>
+        <p class="page-lead">Multi-tenant lead automation built end-to-end—capture and qualify with AI, alert sales on hot intent, run timed follow-ups with approval gates, and run the pipeline from a modern CRM.</p>
+        <div class="tag-grid case-tags"><span class="tag-pill">FastAPI</span>
+          <span class="tag-pill">Next.js</span>
+          <span class="tag-pill">OpenAI</span>
+          <span class="tag-pill">n8n</span>
+          <span class="tag-pill">PostgreSQL</span>
+          <span class="tag-pill">Multi-tenant SaaS</span></div>
+        <div class="page-hero-actions">
+          <a class="btn btn-primary" href="#product-tour">See the platform flow</a>
+          <a class="btn btn-ghost" href="#download">Download case study</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted case-glance-section">
+      <div class="container container-case-wide">
+        <div class="hero-stats case-glance-stats">
+          <div class="stat">
+            <span class="stat-num">9</span>
+            <span class="stat-label">Delivery phases — schema to production demo</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">10</span>
+            <span class="stat-label">Importable n8n workflows</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">3</span>
+            <span class="stat-label">Vertical onboarding templates</span>
+          </div>
+        </div>
+        <div class="case-glance-grid">
+          <article class="case-glance-card">
+            <span class="case-glance-label">Challenge</span>
+            <h2>Leads arrive everywhere</h2>
+            <p>Inbound sits in inboxes and forms. Follow-ups slip. Teams lack one prioritized view—and hot opportunities go cold waiting for a first reply.</p>
+          </article>
+          <article class="case-glance-card">
+            <span class="case-glance-label">Solution</span>
+            <h2>API as brain, n8n as hands</h2>
+            <p>FastAPI owns tenants, qualification, dedup, and approvals. n8n schedules follow-ups and connects social ingest—without redeploying application code.</p>
+          </article>
+          <article class="case-glance-card">
+            <span class="case-glance-label">Outcome</span>
+            <h2>Sales-demo-ready MVP</h2>
+            <p>Docker stack, CI tests, seed data, and a twelve-minute demo: web form → AI score → staff alert → follow-up → engaged reply—with humans in the loop.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section case-tour-section" id="product-tour">
+      <div class="container container-case-wide">
+        <header class="case-section-head case-section-head-split">
+          <div>
+            <p class="eyebrow">Platform tour</p>
+            <h2>Capture → qualify → close the loop</h2>
+            <p class="section-desc">Five moments from the LeadFlow architecture—patterns you can deploy for real estate, B2B, or agency clients.</p>
+          </div>
+          <div class="case-tour-toolbar" aria-hidden="true">
+            <span class="work-carousel-counter case-tour-counter" data-carousel-counter>01 / 05</span>
+          </div>
+        </header>
+        <div class="case-tour" data-case-carousel tabindex="0" aria-roledescription="carousel" aria-label="LeadFlow platform diagrams">
+          <button type="button" class="case-tour-arrow carousel-btn" data-carousel-prev aria-label="Previous diagram">
+            <span aria-hidden="true">←</span>
+          </button>
+          <div class="case-tour-shell">
+            <div class="case-tour-viewport">
+              
+        <article class="case-tour-slide active" data-slide="0">
+          <div class="case-tour-grid">
+            <div class="case-tour-copy">
+              <span class="case-tour-step">Capture</span>
+              <h3 class="case-tour-title">Capture from every channel</h3>
+              <p class="case-tour-desc">Public API ingest with API keys, deduplication, and consent—plus Meta and LinkedIn routed through n8n without secrets in git.</p>
+            </div>
+            <figure class="case-tour-media">
+              <img src="../../assets/case-studies/vyrenlo-ai-leadflow/01-capture.svg" alt="Capture from every channel — diagram" width="1200" height="675" loading="eager" decoding="async" />
+            </figure>
+          </div>
+        </article>
+
+        <article class="case-tour-slide" data-slide="1" hidden>
+          <div class="case-tour-grid">
+            <div class="case-tour-copy">
+              <span class="case-tour-step">Qualify</span>
+              <h3 class="case-tour-title">AI scores intent in seconds</h3>
+              <p class="case-tour-desc">Structured OpenAI output: hot, warm, or cold priority, requirements JSON, and a recommended next action—with a dev heuristic for CI demos.</p>
+            </div>
+            <figure class="case-tour-media">
+              <img src="../../assets/case-studies/vyrenlo-ai-leadflow/02-qualify.svg" alt="AI scores intent in seconds — diagram" width="1200" height="675" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+        </article>
+
+        <article class="case-tour-slide" data-slide="2" hidden>
+          <div class="case-tour-grid">
+            <div class="case-tour-copy">
+              <span class="case-tour-step">Alert</span>
+              <h3 class="case-tour-title">Hot leads wake the team</h3>
+              <p class="case-tour-desc">HMAC-signed webhooks trigger n8n: staff email the moment a lead crosses your hot threshold.</p>
+            </div>
+            <figure class="case-tour-media">
+              <img src="../../assets/case-studies/vyrenlo-ai-leadflow/03-notify.svg" alt="Hot leads wake the team — diagram" width="1200" height="675" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+        </article>
+
+        <article class="case-tour-slide" data-slide="3" hidden>
+          <div class="case-tour-grid">
+            <div class="case-tour-copy">
+              <span class="case-tour-step">Follow-up</span>
+              <h3 class="case-tour-title">Follow-ups on your clock</h3>
+              <p class="case-tour-desc">24h, 72h, 168h sequences with template or AI copy—optional human approval before anything leaves SMTP.</p>
+            </div>
+            <figure class="case-tour-media">
+              <img src="../../assets/case-studies/vyrenlo-ai-leadflow/04-followup.svg" alt="Follow-ups on your clock — diagram" width="1200" height="675" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+        </article>
+
+        <article class="case-tour-slide" data-slide="4" hidden>
+          <div class="case-tour-grid">
+            <div class="case-tour-copy">
+              <span class="case-tour-step">CRM</span>
+              <h3 class="case-tour-title">One CRM for the pipeline</h3>
+              <p class="case-tour-desc">Next.js dashboard: overview metrics, lead detail, notes, communications, tenant settings, and light/dark theming.</p>
+            </div>
+            <figure class="case-tour-media">
+              <img src="../../assets/case-studies/vyrenlo-ai-leadflow/05-crm.svg" alt="One CRM for the pipeline — diagram" width="1200" height="675" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+        </article>
+            </div>
+          </div>
+          <button type="button" class="case-tour-arrow carousel-btn" data-carousel-next aria-label="Next diagram">
+            <span aria-hidden="true">→</span>
+          </button>
+          <div class="case-tour-dots" role="tablist" aria-label="Platform tour steps">
+        <button type="button" class="case-tour-dot active" role="tab" aria-selected="true" data-carousel-goto="0" aria-label="Capture from every channel">
+          <span class="case-tour-dot-label">Capture</span>
+        </button>
+
+        <button type="button" class="case-tour-dot" role="tab" aria-selected="false" data-carousel-goto="1" aria-label="AI scores intent in seconds">
+          <span class="case-tour-dot-label">Qualify</span>
+        </button>
+
+        <button type="button" class="case-tour-dot" role="tab" aria-selected="false" data-carousel-goto="2" aria-label="Hot leads wake the team">
+          <span class="case-tour-dot-label">Alert</span>
+        </button>
+
+        <button type="button" class="case-tour-dot" role="tab" aria-selected="false" data-carousel-goto="3" aria-label="Follow-ups on your clock">
+          <span class="case-tour-dot-label">Follow-up</span>
+        </button>
+
+        <button type="button" class="case-tour-dot" role="tab" aria-selected="false" data-carousel-goto="4" aria-label="One CRM for the pipeline">
+          <span class="case-tour-dot-label">CRM</span>
+        </button>
+          </div>
+          <p class="case-tour-hint">Use arrows or tabs to browse the flow</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container container-case-wide case-arch-layout">
+        <header class="case-section-head">
+          <p class="eyebrow">Architecture</p>
+          <h2>One API, many tenants, orchestration outside the monolith</h2>
+          <p class="section-desc">PostgreSQL is source of truth; Redis rate-limits public ingest; OpenAI returns validated JSON; n8n handles cron, webhooks, and channel glue.</p>
+        </header>
+        <figure class="case-arch-figure case-arch-figure--inline" aria-label="LeadFlow system architecture">
+          <?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" width="920" height="460" role="img" aria-label="LeadFlow multi-tier architecture">
+  <defs>
+    <linearGradient id="lf-arch-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#102A50"/>
+      <stop offset="100%" stop-color="#0BBDB3"/>
+    </linearGradient>
+    <marker id="lf-arch-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#5C6A7E"/>
+    </marker>
+  </defs>
+  <rect width="920" height="460" rx="16" fill="#F5F3EF"/>
+  <text x="460" y="36" text-anchor="middle" fill="#102A50" font-family="system-ui,sans-serif" font-size="15" font-weight="600">Capture, qualify, orchestrateone tenant-aware API</text>
+
+  <rect x="40" y="64" width="200" height="72" rx="10" fill="#fff" stroke="#E6E0D6"/>
+  <text x="140" y="95" text-anchor="middle" fill="#102A50" font-size="12" font-weight="600" font-family="system-ui,sans-serif">Public forms</text>
+  <text x="140" y="118" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">API key ingest</text>
+
+  <rect x="260" y="64" width="200" height="72" rx="10" fill="#fff" stroke="#E6E0D6"/>
+  <text x="360" y="95" text-anchor="middle" fill="#102A50" font-size="12" font-weight="600" font-family="system-ui,sans-serif">Next.js CRM</text>
+  <text x="360" y="118" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">JWT + RBAC</text>
+
+  <rect x="480" y="64" width="200" height="72" rx="10" fill="#fff" stroke="#E6E0D6"/>
+  <text x="580" y="95" text-anchor="middle" fill="#102A50" font-size="12" font-weight="600" font-family="system-ui,sans-serif">n8n</text>
+  <text x="580" y="118" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">cron + webhooks</text>
+
+  <rect x="700" y="64" width="180" height="72" rx="10" fill="#fff" stroke="#E6E0D6"/>
+  <text x="790" y="95" text-anchor="middle" fill="#102A50" font-size="12" font-weight="600" font-family="system-ui,sans-serif">Meta / LinkedIn</text>
+  <text x="790" y="118" text-anchor="middle" fill="#5C6A7E" font-size="10" font-family="system-ui,sans-serif">via n8n only</text>
+
+  <path d="M 140 136 L 140 168 L 460 168" stroke="#5C6A7E" stroke-width="2" fill="none" marker-end="url(#lf-arch-arrow)"/>
+  <path d="M 360 136 L 360 152 L 460 152" stroke="#5C6A7E" stroke-width="2" fill="none" marker-end="url(#lf-arch-arrow)"/>
+  <path d="M 580 136 L 580 152 L 460 152" stroke="#5C6A7E" stroke-width="2" fill="none" marker-end="url(#lf-arch-arrow)"/>
+  <path d="M 790 136 L 790 168 L 580 168" stroke="#5C6A7E" stroke-width="2" fill="none" marker-end="url(#lf-arch-arrow)"/>
+
+  <rect x="260" y="188" width="400" height="88" rx="12" fill="url(#lf-arch-grad)" opacity="0.15" stroke="#0BBDB3"/>
+  <text x="460" y="222" text-anchor="middle" fill="#0C6E68" font-size="14" font-weight="600" font-family="system-ui,sans-serif">FastAPI  domain logic &amp; tenant isolation</text>
+  <text x="460" y="248" text-anchor="middle" fill="#5C6A7E" font-size="11" font-family="system-ui,sans-serif">Qualify � dedupe � approvals � signed events � n8n</text>
+
+  <path d="M 460 276 L 460 308" stroke="#5C6A7E" stroke-width="2" fill="none" marker-end="url(#lf-arch-arrow)"/>
+  <text x="480" y="298" fill="#0BBDB3" font-size="10" font-family="system-ui,sans-serif">OpenAI</text>
+
+  <rect x="120" y="328" width="200" height="56" rx="8" fill="#fff" stroke="#E6E0D6"/>
+  <text x="220" y="360" text-anchor="middle" fill="#102A50" font-size="11" font-weight="600" font-family="system-ui,sans-serif">PostgreSQL</text>
+
+  <rect x="360" y="328" width="200" height="56" rx="8" fill="#fff" stroke="#E6E0D6"/>
+  <text x="460" y="360" text-anchor="middle" fill="#102A50" font-size="11" font-weight="600" font-family="system-ui,sans-serif">Redis</text>
+
+  <rect x="600" y="328" width="200" height="56" rx="8" fill="#fff" stroke="#E6E0D6"/>
+  <text x="700" y="360" text-anchor="middle" fill="#102A50" font-size="11" font-weight="600" font-family="system-ui,sans-serif">SMTP / Mailpit</text>
+
+  <path d="M 460 276 L 220 328" stroke="#5C6A7E" stroke-width="1.5" fill="none" marker-end="url(#lf-arch-arrow)"/>
+  <path d="M 460 276 L 460 328" stroke="#5C6A7E" stroke-width="1.5" fill="none" marker-end="url(#lf-arch-arrow)"/>
+  <path d="M 460 276 L 700 328" stroke="#5C6A7E" stroke-width="1.5" fill="none" marker-end="url(#lf-arch-arrow)"/>
+</svg>
+        </figure>
+        <ul class="check-list case-arch-points">
+          <li>Row-level <code>tenant_id</code> isolation on every owned record—cross-tenant IDs return 404 in tests</li>
+          <li>HMAC webhooks to n8n; service-token auth on internal automation calls</li>
+          <li>Vertical templates seed prompts, follow-up intervals, and channel defaults at provision time</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container-case-wide">
+        <header class="case-section-head">
+          <p class="eyebrow">Design lessons</p>
+          <h2>What we would ship again on the next automation product</h2>
+        </header>
+        <ul class="check-list case-arch-points">
+          <li>Keep qualification, dedup, consent, and approvals in the API—n8n schedules and connects systems</li>
+          <li>Ship multi-tenant schema and RBAC early; retrofitting isolation is expensive</li>
+          <li>Pydantic-validated LLM JSON beats brittle parsing and simplifies tests</li>
+          <li>require_approval_for_outbound makes automation palatable for brand-sensitive clients</li>
+          <li>Vertical JSON templates position one codebase for real estate, B2B, and agency use cases</li>
+          <li>Mailpit, seed scripts, and a scripted demo make the portfolio story repeatable</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section case-download-section" id="download">
+      <div class="container case-download-grid">
+        <div class="case-download-copy">
+          <p class="eyebrow">Full write-up</p>
+          <h2>Download the case study</h2>
+          <p class="section-desc">PDF with stack, security controls, n8n workflow map, and demo narrative. We will also send occasional product and engineering updates—you can unsubscribe anytime.</p>
+        </div>
+        <form class="contact-form case-download-form" id="case-study-download-form" action="#" method="post"
+          data-download-url="../../assets/case-studies/vyrenlo-ai-leadflow/vyrenlo-ai-leadflow-case-study.pdf">
+          <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <input type="hidden" name="_subject" value="LeadFlow case study download" />
+          <input type="hidden" name="case_study" value="Vyrenlo AI LeadFlow" />
+          <div class="case-download-form-row">
+            <label>First name<input type="text" name="first_name" required autocomplete="given-name" /></label>
+            <label>Last name<input type="text" name="last_name" required autocomplete="family-name" /></label>
+          </div>
+          <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+          <label>Phone<input type="tel" name="phone" required autocomplete="tel" /></label>
+          <label class="case-consent">
+            <input type="checkbox" name="consent" value="yes" required />
+            <span>I agree to the <a href="../../terms/index.html">Terms and Conditions</a> and <a href="../../privacy/index.html">Privacy Policy</a>.</span>
+          </label>
+          <button type="submit" class="btn btn-primary">Download PDF</button>
+          <p class="form-status" data-form-status hidden role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section section-muted">
+      <div class="container case-cta-bar">
+        <p>Need a multi-tenant CRM, AI qualification, or n8n automation package for your clients?</p>
+        <a class="btn btn-primary calendly-cta" href="../../contact/index.html">Discuss a similar build</a>
+      </div>
+    </section>
+  </main>
+  <a class="chat-fab" href="../../contact/index.html">Ask us anything</a>
+  
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="../../index.html">
+          <img class="logo-mark" src="../../assets/brand/logo-mark.png" alt="" width="40" height="40" />
+          <span class="logo-text">Vyrenlo</span>
+        </a>
+        <p>AI solutions and software engineering for ambitious businesses.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../../service/generative-ai/index.html">Generative AI</a></li>
+          <li><a href="../../service/agentic-ai/index.html">Agentic AI</a></li>
+          <li><a href="../../service/computer-vision/index.html">Computer Vision</a></li>
+          <li><a href="../../service/predictive-analytics/index.html">Predictive Analytics</a></li>
+          <li><a href="../../service/web-applications/index.html">Web Applications</a></li>
+          <li><a href="../../service/mobile-applications/index.html">Mobile Applications</a></li>
+          <li><a href="../../index.html#services">All services</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Industries</h4>
+        <ul>
+          <li><a href="../../industry/healthcare/index.html">Healthcare</a></li>
+          <li><a href="../../industry/banking-financial/index.html">Banking &amp; Financial Services</a></li>
+          <li><a href="../../industry/e-commerce/index.html">E-Commerce</a></li>
+          <li><a href="../../industry/retail/index.html">Retail</a></li>
+          <li><a href="../../industry/education/index.html">Education</a></li>
+          <li><a href="../../industry/legal-industry/index.html">Legal</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../../case-studies/index.html">Case studies</a></li>
+          <li><a href="../../contact/index.html">Contact</a></li>
+          <li><a href="../../index.html#about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="../../privacy/index.html">Privacy Policy</a></li>
+          <li><a href="../../terms/index.html">Terms and Conditions</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year"></span> Vyrenlo. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="../../form-config.js"></script>
+  <script src="../../main.js"></script>
+</body>
+</html>

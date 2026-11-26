@@ -180,7 +180,11 @@ export const extendedServices = {
       "Documentation for setup, env vars, and on-call basics",
     ],
     relatedTitle: "Recent web & platform work",
-    relatedCaseSlugs: ["personal-fund-subsystem", "support-knowledge-copilot"],
+    relatedCaseSlugs: [
+      "vyrenlo-ai-leadflow",
+      "personal-fund-subsystem",
+      "enterprise-playwright-bdd",
+    ],
     ctaTitle: "Planning a web application?",
     ctaLead: "Share your timeline and constraints—we will reply within one business day with an honest view on scope and next steps.",
     pilotLink: true,

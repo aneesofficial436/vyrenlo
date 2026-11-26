@@ -179,7 +179,7 @@
       statusEl.hidden = false;
       statusEl.classList.add("form-status-error");
       statusEl.textContent =
-        "We could not fetch that URL (blocked or offline). Try PageSpeed instead, or email contact@vyrenlo.com for a manual audit.";
+        "We could not fetch that URL (blocked or offline). Try PageSpeed instead, or email contact@vyrenlo.com or info@vyrenlo.com for a manual audit.";
       const psi = `https://pagespeed.web.dev/analysis?url=${encodeURIComponent(url)}`;
       results.hidden = false;
       results.innerHTML = `<p class="audit-fallback"><a class="btn btn-primary" href="${psi}" target="_blank" rel="noopener noreferrer">Run PageSpeed for this site</a></p>`;
